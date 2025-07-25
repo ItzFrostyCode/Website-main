@@ -61,7 +61,12 @@
 
             <!-- header-utilities-cta -->
             <div class="header-utilities-cta" id="header-utilities-cta">
-                <button class="cta-button">Hire Me</button>
+                <button class="cta-button" id="hireMeBtn">
+                    <svg class="button-icon">
+                        <use xlink:href="creations/assets/svg/icons.svg#icon-briefcase"></use>
+                    </svg>
+                    Hire Me
+                </button>
 
                 <div class="search-container">
                     <button id="searchIcon" class="icon-button search-icon-btn">
@@ -115,7 +120,14 @@
             </li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><button class="cta-button mobile-cta-button">Hire Me</button></li>
+            <li>
+                <button class="cta-button mobile-cta-button" id="mobileHireMeBtn">
+                    <svg class="button-icon">
+                        <use xlink:href="creations/assets/svg/icons.svg#icon-briefcase"></use>
+                    </svg>
+                    Hire Me
+                </button>
+            </li>
         </ul>
     </nav>
 
@@ -563,120 +575,90 @@
                 <p class="section-subtitle">From HTML basics to building complete systems</p>
             </div>
 
-            <div class="timeline-wrapper">
-                <!-- Year 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-year">2022-2023</div>
-                        <div class="timeline-dot"></div>
+            <div class="journey-timeline">
+                <div class="timeline-path">
+                    <!-- Stage 1 -->
+                    <div class="journey-stage">
+                        <div class="stage-number">01</div>
+                        <div class="stage-content">
+                            <div class="stage-period">2022-2023</div>
+                            <h3 class="stage-title">Foundation Era</h3>
+                            <p class="stage-description">Started with web fundamentals and design thinking</p>
+                            <div class="stage-highlights">
+                                <span class="highlight-pill">HTML/CSS/JS</span>
+                                <span class="highlight-pill">Figma Design</span>
+                                <span class="highlight-pill">Java Basics</span>
+                                <span class="highlight-pill success">🏆 UI/UX Champion</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Year 1: Foundation Building</h3>
-                        <div class="timeline-achievements">
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-code-brackets"></use></svg>
-                                <span>Basic HTML/CSS, JavaScript</span>
+
+                    <!-- Stage 2 -->
+                    <div class="journey-stage">
+                        <div class="stage-number">02</div>
+                        <div class="stage-content">
+                            <div class="stage-period">2023-2024</div>
+                            <h3 class="stage-title">Expansion Phase</h3>
+                            <p class="stage-description">Explored mobile development and backend systems</p>
+                            <div class="stage-highlights">
+                                <span class="highlight-pill">Python</span>
+                                <span class="highlight-pill">Android Studio</span>
+                                <span class="highlight-pill">Portfolio v1</span>
+                                <span class="highlight-pill bronze">🥉 Android Dev</span>
                             </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-figma"></use></svg>
-                                <span>Started exploring Figma for UI/UX</span>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="journey-stage">
+                        <div class="stage-number">03</div>
+                        <div class="stage-content">
+                            <div class="stage-period">2024-2025</div>
+                            <h3 class="stage-title">Mastery Mode</h3>
+                            <p class="stage-description">Advanced development with enterprise-level tools</p>
+                            <div class="stage-highlights">
+                                <span class="highlight-pill">C# Systems</span>
+                                <span class="highlight-pill">Forms Apps</span>
+                                <span class="highlight-pill">Portfolio v2</span>
+                                <span class="highlight-pill active">🚀 Current</span>
                             </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-database"></use></svg>
-                                <span>Java programming fundamentals</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-trophy"></use></svg>
-                                <span>Joined UI/UX competition</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-tools"></use></svg>
-                                <span>Built Java System Project</span>
+                        </div>
+                    </div>
+
+                    <!-- Stage 4 -->
+                    <div class="journey-stage future">
+                        <div class="stage-number">04</div>
+                        <div class="stage-content">
+                            <div class="stage-period">2025+</div>
+                            <h3 class="stage-title">Professional Journey</h3>
+                            <p class="stage-description">Transitioning to professional development career</p>
+                            <div class="stage-highlights">
+                                <span class="highlight-pill">Advanced APIs</span>
+                                <span class="highlight-pill">Cloud Services</span>
+                                <span class="highlight-pill">Team Projects</span>
+                                <span class="highlight-pill future">🎯 Next Goal</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Year 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-year">2023-2024</div>
-                        <div class="timeline-dot"></div>
+                <!-- Progress Stats -->
+                <div class="journey-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Learning</div>
                     </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Year 2: Expanding Horizons</h3>
-                        <div class="timeline-achievements">
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-terminal"></use></svg>
-                                <span>Basic Python programming</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-design"></use></svg>
-                                <span>Created Personal Portfolio Website</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-mobile"></use></svg>
-                                <span>Started exploring Android Studio</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-trophy"></use></svg>
-                                <span>Joined Android Studio competition</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-code-brackets"></use></svg>
-                                <span>Built basic Python projects</span>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Technologies</div>
                     </div>
-                </div>
-
-                <!-- Year 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="timeline-year">2024-2025</div>
-                        <div class="timeline-dot"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Projects Built</div>
                     </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Year 3: Advanced Development</h3>
-                        <div class="timeline-achievements">
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-terminal"></use></svg>
-                                <span>Basic C# console and forms</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-tools"></use></svg>
-                                <span>Built basic C# Forms Systems</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-design"></use></svg>
-                                <span>Started revamping portfolio</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Next Steps -->
-                <div class="timeline-item next-steps">
-                    <div class="timeline-marker">
-                        <div class="timeline-year">Next Steps</div>
-                        <div class="timeline-dot future"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Future Goals</h3>
-                        <div class="timeline-achievements">
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-github"></use></svg>
-                                <span>Master Git, APIs, Security</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-briefcase"></use></svg>
-                                <span>Build Freelance Projects</span>
-                            </div>
-                            <div class="achievement-item">
-                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-target"></use></svg>
-                                <span>Land Internship / Freelance Gigs</span>
-                            </div>
-                        </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Competition Wins</div>
                     </div>
                 </div>
             </div>
@@ -948,9 +930,140 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <!-- Footer Top Section -->
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="footer-logo-text">J</span>
+                    </div>
+                    <h3 class="footer-brand-name">Joshua Arabejo</h3>
+                    <p class="footer-tagline">Developer & Designer</p>
+                    <p class="footer-description">
+                        Creating digital solutions with modern technologies. 
+                        Specializing in web development, UI/UX design, and desktop applications.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Navigation</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Services</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="creations/web-apps.html">Web Development</a></li>
+                            <li><a href="creations/mobile-apps.html">Mobile Apps</a></li>
+                            <li><a href="creations/desktop-apps.html">Desktop Apps</a></li>
+                            <li><a href="creations/games.html">Game Development</a></li>
+                            <li><a href="creations/tools.html">Tools & Automation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Technologies</h4>
+                        <ul class="footer-tech-list">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>React, Next.js</li>
+                            <li>C#, .NET</li>
+                            <li>Python, MySQL</li>
+                            <li>Figma, UI/UX</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Get In Touch</h4>
+                        <div class="footer-contact">
+                            <div class="footer-contact-item">
+                                <svg class="footer-icon">
+                                    <use xlink:href="creations/assets/svg/icons.svg#icon-mail"></use>
+                                </svg>
+                                <a href="mailto:itzjoshuawayman@gmail.com">itzjoshuawayman@gmail.com</a>
+                            </div>
+                            <div class="footer-contact-item">
+                                <svg class="footer-icon">
+                                    <use xlink:href="creations/assets/svg/icons.svg#icon-map-pin"></use>
+                                </svg>
+                                <span>Davao City, Philippines</span>
+                            </div>
+                        </div>
+
+                        <div class="footer-social">
+                            <h5 class="footer-social-title">Follow Me</h5>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/joshua.a.arabejo" class="footer-social-link" title="Facebook">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-facebook"></use>
+                                    </svg>
+                                </a>
+                                <a href="#" class="footer-social-link" title="Telegram">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-telegram"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.youtube.com/@joshuaarabejodrums5441" class="footer-social-link" title="YouTube">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-youtube"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/joshua-arabejo-55a857324/" class="footer-social-link" title="LinkedIn">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-linkedin"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/ItzFrostyCode" class="footer-social-link" title="GitHub">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-github"></use>
+                                    </svg>
+                                </a>
+                                <a href="mailto:itzjoshuawayman@gmail.com" class="footer-social-link" title="Gmail">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-gmail"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Joshua Arabejo. All rights reserved.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                        <a href="#" class="footer-bottom-link">Terms of Service</a>
+                        <a href="#" class="footer-bottom-link">Sitemap</a>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Made with ❤️ using modern web technologies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Leaflet JS for Map -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- EmailJS for sending emails -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
     <script src="creations/assets/js/particles-background.js"></script>
+    <script src="creations/assets/js/email-config.js"></script>
     <script src="creations/assets/js/script.js"></script>
     <script src="creations/assets/js/project-cards.js"></script>
 </body>

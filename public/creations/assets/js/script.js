@@ -277,12 +277,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* ==================== HIRE ME BUTTON FUNCTIONALITY ==================== */
+    function initializeHireMeButton() {
+        const hireMeBtn = document.getElementById('hireMeBtn');
+        const mobileHireMeBtn = document.getElementById('mobileHireMeBtn');
+        const contactSection = document.getElementById('contact-section');
+
+        function scrollToContact() {
+            if (contactSection) {
+                // Close mobile menu if it's open
+                const mobileNavMenu = document.getElementById('mobileNavMenu');
+                if (mobileNavMenu && mobileNavMenu.classList.contains('active')) {
+                    mobileNavMenu.classList.remove('active');
+                }
+
+                // Smooth scroll to contact section
+                contactSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start',
+                    inline: 'nearest'
+                });
+
+                // Optional: Add a subtle animation to the contact section
+                contactSection.style.transform = 'scale(1.01)';
+                contactSection.style.transition = 'transform 0.3s ease';
+                
+                setTimeout(() => {
+                    contactSection.style.transform = 'scale(1)';
+                }, 300);
+
+                // Focus on the first input field after scrolling
+                setTimeout(() => {
+                    const firstInput = contactSection.querySelector('input[type="text"]');
+                    if (firstInput) {
+                        firstInput.focus();
+                    }
+                }, 800);
+            }
+        }
+
+        // Desktop Hire Me button
+        if (hireMeBtn) {
+            hireMeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToContact();
+            });
+        }
+
+        // Mobile Hire Me button
+        if (mobileHireMeBtn) {
+            mobileHireMeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                scrollToContact();
+            });
+        }
+    }
+
+    // Initialize Hire Me button
+    initializeHireMeButton();
+
     /* ==================== CONTACT FORM FUNCTIONALITY ==================== */
     function initializeContactForm() {
         const contactForm = document.querySelector('.contact-form');
         if (!contactForm) return;
 
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
             // Get form elements
@@ -324,30 +383,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 newsletter: newsletterInput.checked
             };
 
-            // Log form data (replace with actual submission)
+            // Log form data for debugging
             console.log('Form submission data:', formData);
 
-            // Simulate form submission (replace with actual endpoint)
-            setTimeout(() => {
-                // Success simulation
-                const categoryText = subjectInput.options[subjectInput.selectedIndex].text;
-                showNotification(`Thank you ${formData.name}! Your ${categoryText.toLowerCase()} inquiry has been sent successfully. I'll get back to you soon!`, 'success');
+            // Send email using EmailJS
+            try {
+                const emailResult = await sendContactEmail(formData);
                 
-                // Reset form
-                contactForm.reset();
-                
+                if (emailResult.success) {
+                    // Success - email sent
+                    const categoryText = subjectInput.options[subjectInput.selectedIndex].text;
+                    showNotification(`Thank you ${formData.name}! Your ${categoryText.toLowerCase()} inquiry has been sent successfully to itzjoshuawayman@gmail.com. I'll get back to you soon!`, 'success');
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Optional: Google Analytics or other tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'form_submit', {
+                            'event_category': 'Contact',
+                            'event_label': formData.subject
+                        });
+                    }
+                } else {
+                    // Error sending email
+                    showNotification('Sorry, there was an error sending your message. Please try again or contact me directly at itzjoshuawayman@gmail.com.', 'error');
+                }
+            } catch (error) {
+                console.error('Error sending email:', error);
+                showNotification('Sorry, there was an error sending your message. Please try again or contact me directly at itzjoshuawayman@gmail.com.', 'error');
+            } finally {
                 // Restore button
                 submitButton.innerHTML = originalButtonText;
                 submitButton.disabled = false;
-                
-                // Optional: Google Analytics or other tracking
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'form_submit', {
-                        'event_category': 'Contact',
-                        'event_label': formData.subject
-                    });
-                }
-            }, 2000);
+            }
         });
 
         // Add real-time validation feedback
