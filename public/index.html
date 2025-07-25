@@ -19,6 +19,9 @@
     <!-- Google Fonts for Poppins (Navigation Font) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
     <!-- jQuery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -549,6 +552,404 @@
         </div>
     </section>
 
+    <!-- Timeline Section -->
+    <section id="timeline-section">
+        <div class="timeline-container">
+            <div class="timeline-header">
+                <div class="timeline-header-icon">
+                    <svg class="icon"><use xlink:href="creations/assets/svg/icons.svg#icon-calendar"></use></svg>
+                </div>
+                <h2 class="section-title">MY LEARNING JOURNEY</h2>
+                <p class="section-subtitle">From HTML basics to building complete systems</p>
+            </div>
+
+            <div class="timeline-wrapper">
+                <!-- Year 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-year">2022-2023</div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Year 1: Foundation Building</h3>
+                        <div class="timeline-achievements">
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-code-brackets"></use></svg>
+                                <span>Basic HTML/CSS, JavaScript</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-figma"></use></svg>
+                                <span>Started exploring Figma for UI/UX</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-database"></use></svg>
+                                <span>Java programming fundamentals</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-trophy"></use></svg>
+                                <span>Joined UI/UX competition</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-tools"></use></svg>
+                                <span>Built Java System Project</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-year">2023-2024</div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Year 2: Expanding Horizons</h3>
+                        <div class="timeline-achievements">
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-terminal"></use></svg>
+                                <span>Basic Python programming</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-design"></use></svg>
+                                <span>Created Personal Portfolio Website</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-mobile"></use></svg>
+                                <span>Started exploring Android Studio</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-trophy"></use></svg>
+                                <span>Joined Android Studio competition</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-code-brackets"></use></svg>
+                                <span>Built basic Python projects</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="timeline-year">2024-2025</div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Year 3: Advanced Development</h3>
+                        <div class="timeline-achievements">
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-terminal"></use></svg>
+                                <span>Basic C# console and forms</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-tools"></use></svg>
+                                <span>Built basic C# Forms Systems</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-design"></use></svg>
+                                <span>Started revamping portfolio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="timeline-item next-steps">
+                    <div class="timeline-marker">
+                        <div class="timeline-year">Next Steps</div>
+                        <div class="timeline-dot future"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Future Goals</h3>
+                        <div class="timeline-achievements">
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-github"></use></svg>
+                                <span>Master Git, APIs, Security</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-briefcase"></use></svg>
+                                <span>Build Freelance Projects</span>
+                            </div>
+                            <div class="achievement-item">
+                                <svg class="achievement-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-target"></use></svg>
+                                <span>Land Internship / Freelance Gigs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements-section">
+        <div class="achievements-container">
+            <div class="achievements-header">
+                <div class="achievements-header-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M10.325 14.763A6 6 0 0 1 6 9V1h12v9M6 3H1v4c0 2.509 1.791 4 4 4h1m14.034-.115C21.742 10.49 23 9.103 23 7V3h-5m-8 16H5v4h11.5m0-13a6.5 6.5 0 1 0 0 13a6.5 6.5 0 0 0 0-13Zm3.5 4l-4.5 4.5L13 16m-2.794-.576A4 4 0 0 0 8 19"/></svg>
+                </div>
+                <h2 class="section-title">ACHIEVEMENTS</h2>
+                <p class="section-subtitle">Milestones and recognitions along the way</p>
+            </div>
+
+            <div class="achievements-grid">
+                <!-- Certifications -->
+                <div class="achievement-card">
+                    <div class="achievement-card-header">
+                        <div class="achievement-icon-wrapper">
+                            <svg class="achievement-main-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-award"></use></svg>
+                        </div>
+                        <h3 class="achievement-card-title">Certifications & Competition Wins</h3>
+                    </div>
+                    <div class="achievement-list">
+                        <div class="achievement-entry">
+                            <div class="achievement-badge champion">🥇</div>
+                            <div class="achievement-details">
+                                <h4>Champion - UI/UX Design (Figma)</h4>
+                                <p>1st Year Competition Winner</p>
+                            </div>
+                        </div>
+                        <div class="achievement-entry">
+                            <div class="achievement-badge third">🥉</div>
+                            <div class="achievement-details">
+                                <h4>3rd Place - Android Development (Java)</h4>
+                                <p>2nd Year Competition</p>
+                            </div>
+                        </div>
+                        <div class="achievement-entry">
+                            <div class="achievement-badge ongoing">🏆</div>
+                            <div class="achievement-details">
+                                <h4>Ongoing: Portfolio & Internship Hunting</h4>
+                                <p>Building professional presence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestones -->
+                <div class="achievement-card">
+                    <div class="achievement-card-header">
+                        <div class="achievement-icon-wrapper">
+                            <svg class="achievement-main-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-calendar"></use></svg>
+                        </div>
+                        <h3 class="achievement-card-title">Milestones & Timeline</h3>
+                    </div>
+                    <div class="achievement-list">
+                        <div class="achievement-entry">
+                            <div class="achievement-badge milestone">🔹</div>
+                            <div class="achievement-details">
+                                <h4>Created "Lending Machine" System</h4>
+                                <p>Year 2 Major Project</p>
+                            </div>
+                        </div>
+                        <div class="achievement-entry">
+                            <div class="achievement-badge milestone">🔹</div>
+                            <div class="achievement-details">
+                                <h4>Developed "Library System"</h4>
+                                <p>Team Collaboration Project</p>
+                            </div>
+                        </div>
+                        <div class="achievement-entry">
+                            <div class="achievement-badge milestone">🔹</div>
+                            <div class="achievement-details">
+                                <h4>Built "Lending System" (Forms + DB)</h4>
+                                <p>Full-stack development experience</p>
+                            </div>
+                        </div>
+                        <div class="achievement-entry">
+                            <div class="achievement-badge milestone">🔹</div>
+                            <div class="achievement-details">
+                                <h4>UI Redesign Projects on Figma</h4>
+                                <p>Passion projects & skill development</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section id="blog-preview-section">
+        <div class="blog-preview-container">
+            <div class="blog-preview-header">
+                <div class="blog-header-icon">
+                    <svg class="icon"><use xlink:href="creations/assets/svg/icons.svg#icon-edit"></use></svg>
+                </div>
+                <h2 class="section-title">LATEST BLOG POSTS</h2>
+                <p class="section-subtitle">Sharing experiences and insights from my journey</p>
+            </div>
+
+            <div class="blog-posts-grid">
+                <article class="blog-post-card">
+                    <div class="blog-post-image">
+                        <div class="blog-post-placeholder">📝</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">I Carried a Failing Project — Here's What It Taught Me</h3>
+                        <p class="blog-post-excerpt">Reflecting on the pressure and growth from taking charge of a school project that was falling apart.</p>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">Coming Soon</span>
+                            <a href="blog.html" class="blog-post-link">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card">
+                    <div class="blog-post-image">
+                        <div class="blog-post-placeholder">🎨</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Why Figma is the Best Tool I Used as a Beginner</h3>
+                        <p class="blog-post-excerpt">Sharing how Figma boosted your design confidence early on and made UI/UX less intimidating.</p>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">Coming Soon</span>
+                            <a href="blog.html" class="blog-post-link">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card">
+                    <div class="blog-post-image">
+                        <div class="blog-post-placeholder">💼</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">They Wanted a System — But Not the Responsibility</h3>
+                        <p class="blog-post-excerpt">Lessons learned from working with passive or uncommitted 'clients' who requested systems but didn't follow through.</p>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">Coming Soon</span>
+                            <a href="blog.html" class="blog-post-link">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="blog-post-card">
+                    <div class="blog-post-image">
+                        <div class="blog-post-placeholder">🌓</div>
+                    </div>
+                    <div class="blog-post-content">
+                        <h3 class="blog-post-title">Light Mode vs Dark Mode: UX Debates in 2025</h3>
+                        <p class="blog-post-excerpt">A fun look into design preferences, accessibility, and modern UI trends.</p>
+                        <div class="blog-post-meta">
+                            <span class="blog-post-date">Coming Soon</span>
+                            <a href="blog.html" class="blog-post-link">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contact Section --> 
+    <section id="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <div class="contact-header-icon">
+                    <svg class="icon"><use xlink:href="creations/assets/svg/icons.svg#icon-mail"></use></svg>
+                </div>
+                <h2 class="section-title">CONTACT ME</h2>
+                <p class="section-subtitle">Let's work together on your next project</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Map (Top) -->
+                <div class="contact-map">
+                    <div id="map"></div>
+                    <div class="map-overlay">
+                        <div class="location-info">
+                            <h3>📍 Location</h3>
+                            <p>Davao City, Philippines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Bottom) -->
+                <div class="contact-form-wrapper">
+                    <h3 class="form-title">Let's Start a Conversation</h3>
+                    <p class="form-subtitle">Tell me about your project and how I can help you</p>
+                    
+                    <form class="contact-form" action="#" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group select-group">
+                                <label for="subject">Project Category *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a service category</option>
+                                    <option value="web-development">🌐 Web Development (HTML, CSS, JS)</option>
+                                    <option value="ui-design">🎨 UI/UX Design (Figma)</option>
+                                    <option value="desktop-app">💻 Desktop Application (C#, .NET)</option>
+                                    <option value="mobile-app">📱 Mobile App Development</option>
+                                    <option value="game-development">🎮 Game Development</option>
+                                    <option value="database">🗄️ Database Development (MySQL)</option>
+                                    <option value="automation">⚙️ Automation & Tools</option>
+                                    <option value="consultation">💡 Tech Consultation</option>
+                                    <option value="other">🔧 Other / Custom Project</option>
+                                </select>
+                            </div>
+                            <div class="form-group select-group">
+                                <label for="budget">Project Budget (Optional)</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-500">Under ₱500</option>
+                                    <option value="500-1000">₱500 - ₱1,000</option>
+                                    <option value="1000-2500">₱1,000 - ₱2,500</option>
+                                    <option value="2500-5000">₱2,500 - ₱5,000</option>
+                                    <option value="5000-plus">₱5,000+</option>
+                                    <option value="discuss">Let's discuss</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group select-group">
+                            <label for="timeline">Project Timeline (Optional)</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush job)</option>
+                                <option value="1-week">Within 1 week</option>
+                                <option value="2-4-weeks">2-4 weeks</option>
+                                <option value="1-2-months">1-2 months</option>
+                                <option value="3-months-plus">3+ months</option>
+                                <option value="flexible">Flexible timeline</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project:&#10;&#10;• What are you looking to build?&#10;• What's your vision or goal?&#10;• Any specific features you need?&#10;• Reference websites or designs?&#10;• Any technical requirements?"></textarea>
+                        </div>
+
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="checkbox">
+                            <label for="newsletter" class="checkbox-label">I'd like to receive updates about your latest projects and tech insights</label>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            <svg class="button-icon">
+                                <use xlink:href="creations/assets/svg/icons.svg#icon-send"></use>
+                            </svg>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="creations/assets/js/particles-background.js"></script>
     <script src="creations/assets/js/script.js"></script>
     <script src="creations/assets/js/project-cards.js"></script>

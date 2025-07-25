@@ -225,4 +225,290 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Call active link highlighter on load
     highlightActiveLink();
+
+    /* ==================== MAP INITIALIZATION ==================== */
+    function initializeMap() {
+        const mapElement = document.getElementById('map');
+        if (!mapElement) return;
+
+        try {
+            // Davao City coordinates
+            const davaoLat = 7.1907;
+            const davaoLng = 125.4553;
+
+            // Initialize the map
+            const map = L.map('map').setView([davaoLat, davaoLng], 12);
+
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            // Custom marker icon
+            const customIcon = L.divIcon({
+                html: '<div style="background: linear-gradient(135deg, #ffc36a, #DD6B20); width: 30px; height: 30px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.3);"></div>',
+                className: 'custom-div-icon',
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+
+            // Add marker
+            L.marker([davaoLat, davaoLng], { icon: customIcon })
+                .addTo(map)
+                .bindPopup('<b>📍 Davao City</b><br>Philippines')
+                .openPopup();
+
+            // Disable scroll zoom initially
+            map.scrollWheelZoom.disable();
+
+            // Enable scroll zoom on click
+            map.on('click', function() {
+                map.scrollWheelZoom.enable();
+            });
+
+            // Disable scroll zoom when mouse leaves
+            map.on('mouseout', function() {
+                map.scrollWheelZoom.disable();
+            });
+
+        } catch (error) {
+            console.error('Error initializing map:', error);
+            mapElement.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; background: linear-gradient(135deg, #ffc36a, #DD6B20); color: white; font-weight: 600;">📍 Davao City, Philippines</div>';
+        }
+    }
+
+    /* ==================== CONTACT FORM FUNCTIONALITY ==================== */
+    function initializeContactForm() {
+        const contactForm = document.querySelector('.contact-form');
+        if (!contactForm) return;
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form elements
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            const budgetInput = document.getElementById('budget');
+            const timelineInput = document.getElementById('timeline');
+            const newsletterInput = document.getElementById('newsletter');
+            const submitButton = contactForm.querySelector('.submit-button');
+
+            // Validate required fields
+            if (!nameInput.value.trim() || !emailInput.value.trim() || !subjectInput.value || !messageInput.value.trim()) {
+                showNotification('Please fill in all required fields (marked with *).', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Show loading state
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.innerHTML = '<svg class="button-icon" style="animation: spin 1s linear infinite;"><use xlink:href="creations/assets/svg/icons.svg#icon-refresh"></use></svg> Sending...';
+            submitButton.disabled = true;
+
+            // Collect form data
+            const formData = {
+                name: nameInput.value.trim(),
+                email: emailInput.value.trim(),
+                subject: subjectInput.value,
+                message: messageInput.value.trim(),
+                budget: budgetInput.value || 'Not specified',
+                timeline: timelineInput.value || 'Not specified',
+                newsletter: newsletterInput.checked
+            };
+
+            // Log form data (replace with actual submission)
+            console.log('Form submission data:', formData);
+
+            // Simulate form submission (replace with actual endpoint)
+            setTimeout(() => {
+                // Success simulation
+                const categoryText = subjectInput.options[subjectInput.selectedIndex].text;
+                showNotification(`Thank you ${formData.name}! Your ${categoryText.toLowerCase()} inquiry has been sent successfully. I'll get back to you soon!`, 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Restore button
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+                
+                // Optional: Google Analytics or other tracking
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'form_submit', {
+                        'event_category': 'Contact',
+                        'event_label': formData.subject
+                    });
+                }
+            }, 2000);
+        });
+
+        // Add real-time validation feedback
+        const inputs = contactForm.querySelectorAll('input[required], select[required], textarea[required]');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    validateField(this);
+                }
+            });
+        });
+    }
+
+    // Field validation helper
+    function validateField(field) {
+        const value = field.value.trim();
+        const isEmail = field.type === 'email';
+        
+        // Remove existing error styling
+        field.classList.remove('error');
+        
+        // Check if required field is empty
+        if (field.hasAttribute('required') && !value) {
+            field.classList.add('error');
+            return false;
+        }
+        
+        // Email validation
+        if (isEmail && value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                field.classList.add('error');
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    /* ==================== NOTIFICATION SYSTEM ==================== */
+    function showNotification(message, type = 'info') {
+        // Remove existing notifications
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        `;
+
+        // Set background color based on type
+        switch (type) {
+            case 'success':
+                notification.style.background = 'linear-gradient(135deg, #48BB78, #38A169)';
+                break;
+            case 'error':
+                notification.style.background = 'linear-gradient(135deg, #F56565, #E53E3E)';
+                break;
+            default:
+                notification.style.background = 'linear-gradient(135deg, #4299E1, #3182CE)';
+        }
+
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateX(400px)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 300);
+        }, 5000);
+    }
+
+    /* ==================== SCROLL ANIMATIONS ==================== */
+    function initializeScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(50px)';
+            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(item);
+        });
+
+        // Observe achievement cards
+        const achievementCards = document.querySelectorAll('.achievement-card');
+        achievementCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+            observer.observe(card);
+        });
+
+        // Observe blog post cards
+        const blogCards = document.querySelectorAll('.blog-post-card');
+        blogCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+    }
+
+    /* ==================== INITIALIZE ALL FEATURES ==================== */
+    // Initialize map and contact form when page loads
+    setTimeout(() => {
+        initializeMap();
+        initializeContactForm();
+        initializeScrollAnimations();
+    }, 500);
 });
+
+/* ==================== ADDITIONAL CSS ANIMATIONS ==================== */
+// Add CSS for spinning animation
+if (!document.querySelector('#spin-animation-style')) {
+    const spinStyle = document.createElement('style');
+    spinStyle.id = 'spin-animation-style';
+    spinStyle.textContent = `
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    `;
+    document.head.appendChild(spinStyle);
+}
