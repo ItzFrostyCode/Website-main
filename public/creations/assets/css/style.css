@@ -60,38 +60,47 @@ html {
     --color-warning: #ED8936;
     --color-error: #F56565;
     
-    /* Light Mode Palette - Improved for Better Contrast and Readability */
-    --color-bg-primary-light: #FAFBFC; /* Softer off-white to reduce glare */
+    /* Light Mode Palette - Clean Facebook-style Design */
+    --color-bg-primary-light: #F0F2F5; /* Facebook-like soft gray background */
     --color-bg-secondary-light: #FFFFFF; /* Pure white for cards/containers */
-    --color-bg-tertiary-light: #F5F6F7; /* Subtle gray for section separation */
+    --color-bg-tertiary-light: #F7F8FA; /* Very subtle gray for sections */
+    --color-bg-accent-light: #FFF4E6; /* Light orange background for accents */
     --color-bg-secondary-light-rgb: 255, 255, 255; /* RGB values for transparency */
-    --color-text-primary-light: #1C1E21; /* High contrast dark text (WCAG AA compliant) */
-    --color-text-secondary-light: #606770; /* Improved contrast for secondary text */
-    --color-text-tertiary-light: #8A8D91; /* Lighter gray for descriptions */
-    --color-text-placeholder-light: #9AA0A6; /* Better visibility for placeholders */
-    --color-border-light: #DADDE1; /* More visible subtle borders */
-    --color-border-subtle-light: #E4E6EA; /* Even more subtle borders */
+    --color-text-primary-light: #1C1E21; /* Facebook-style dark text */
+    --color-text-secondary-light: #65676B; /* Facebook-style secondary text */
+    --color-text-tertiary-light: #8A8D91; /* Muted gray for descriptions */
+    --color-text-placeholder-light: #BCC0C4; /* Subtle placeholder text */
+    --color-border-light: #DADDE1; /* Facebook-style borders */
+    --color-border-subtle-light: #E4E6EA; /* Ultra-subtle borders */
 
-    /* Hover States - Accessible and Subtle */
-    --color-hover-light: #F2F3F4; /* Slightly more visible hover state */
-    --color-hover-shadow-light: rgba(0, 0, 0, 0.12); /* More defined shadow for clarity */
+    /* Keep Original Accent Colors */
+    --color-accent-primary-light: #ffc36a; /* Your original orange */
+    --color-accent-hover-light: #DD6B20; /* Your original hover orange */
+    --color-accent-bg-light: #FFF4E6; /* Light orange background */
+
+    /* Hover States - Clean & Minimal */
+    --color-hover-light: #F7F8FA; /* Clean hover background */
+    --color-hover-shadow-light: rgba(0, 0, 0, 0.1); /* Facebook-style shadow */
 
     /* Active Nav Link Colors (Light Mode) */
-    --color-nav-active-light: #ffc36a; /* Accent color span for active state */
+    --color-nav-active-light: #ffc36a; /* Your original orange */
 
     /* Logo Color (Light Mode) */
-    --color-logo-light: #ffc36a; /* Keep orange for branding */
+    --color-logo-light: #ffc36a; /* Your original orange */
 
-    /* CTA Button Text Color (Light Mode) */
+    /* CTA Button Colors (Light Mode) */
+    --color-cta-bg-light: #ffc36a; /* Your original orange */
     --color-cta-text-light: #FFFFFF; /* White text on orange buttons */
+    --color-cta-hover-light: #DD6B20; /* Your original hover orange */
 
     /* Search Icon Colors (Light Mode) */
-    --color-search-icon-light: #606770; /* Neutral gray for search icon */
-    --color-search-icon-hover-light: #ffc36a; /* Accent color on hover */
+    --color-search-icon-light: #65676B; /* Facebook-style gray */
+    --color-search-icon-hover-light: #ffc36a; /* Your original orange on hover */
 
     /* Card/Section Backgrounds (Light Mode) */
-    --color-card-light: #FFFFFF; /* Pure white for cards */
-    --color-card-hover-light: #F8F9FA; /* Light gray hover state */
+    --color-card-light: #FFFFFF; /* Pure white cards */
+    --color-card-hover-light: #F7F8FA; /* Subtle hover state */
+    --color-card-border-light: #DADDE1; /* Facebook-style borders */
 
     /* Dark Mode Palette */
     --color-bg-primary-dark: #252728; /* Body background in dark mode */
@@ -135,7 +144,7 @@ html {
     --color-hover-shadow-light: rgba(0, 0, 0, 0.08);
 }
 
-/* Light Mode Overrides (when body has light-mode class) */
+/* Light Mode Overrides - Same Excellent Design as Dark Mode */
 body.light-mode {
     --color-bg-primary: var(--color-bg-primary-light);
     --color-bg-secondary: var(--color-bg-secondary-light);
@@ -155,69 +164,910 @@ body.light-mode {
     --color-search-icon: var(--color-search-icon-light);
     --color-search-icon-hover: var(--color-search-icon-hover-light);
     
-    /* Clean accent colors for light mode - no orange in hover states */
-    --color-accent-primary: #ffc36a; /* Orange for branding/accents only */
-    --color-accent-hover: #F5F5F5; /* Light gray for hover instead of orange */
-    --color-accent-light: #F8F9FA; /* Light gray for subtle backgrounds */
+    /* Use original accent colors */
+    --color-accent-primary: var(--color-accent-primary-light);
+    --color-accent-hover: var(--color-accent-hover-light);
+    --color-accent-light: var(--color-accent-bg-light);
+    
+    /* Light mode background with subtle patterns like dark mode */
+    background: var(--color-bg-primary-light);
+    position: relative;
 }
 
-/* Enhanced card design with better contrast and spacing */
+/* Light Mode Background Patterns - Same as Dark Mode Structure */
+body.light-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 195, 106, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 195, 106, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-move 20s linear infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body.light-mode::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 195, 106, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 195, 106, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 60% 40%, rgba(255, 195, 106, 0.02) 0%, transparent 50%);
+    z-index: -9999;
+    pointer-events: none;
+}
+
+/* Hero Section for Light Mode - Same Structure as Dark Mode */
+body.light-mode #Hero-Banner {
+    background: var(--color-bg-primary-light);
+    position: relative;
+}
+
+body.light-mode #left-message,
+body.light-mode #middle-profile,
+body.light-mode #right-socials {
+    position: relative;
+    z-index: 2;
+}
+
+/* Typography for Light Mode - Same Style as Dark Mode */
+body.light-mode .hero-greeting {
+    color: var(--color-text-secondary-light);
+    font-weight: 400;
+    text-shadow: none;
+}
+
+body.light-mode .hero-name-main {
+    color: var(--color-accent-primary-light);
+    font-weight: 700;
+    text-shadow: none;
+}
+
+body.light-mode #Regular-18 {
+    color: var(--color-text-secondary-light);
+    text-shadow: none;
+    font-weight: 400;
+}
+
+/* Light Mode CTA Button - Same Excellent Design as Dark Mode */
+body.light-mode #CTA-CV {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: #FFFFFF;
+    border: 2px solid rgba(255, 195, 106, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(255, 195, 106, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    border-radius: 8px;
+    padding: 12px 24px;
+}
+
+body.light-mode #CTA-CV:hover {
+    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 16px 48px rgba(255, 195, 106, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 195, 106, 0.5);
+}
+
+/* Light Mode Header CTA Button - Same Consistency */
+body.light-mode .cta-button {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: #FFFFFF;
+    border: 2px solid rgba(255, 195, 106, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(255, 195, 106, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.light-mode .cta-button:hover {
+    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 16px 48px rgba(255, 195, 106, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 195, 106, 0.5);
+}
+
+body.light-mode .cta-button.secondary {
+    background: transparent;
+    color: var(--color-accent-primary-light);
+    border: 2px solid var(--color-accent-primary-light);
+    box-shadow: none;
+}
+
+body.light-mode .cta-button.secondary:hover {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 195, 106, 0.3);
+}
+
+/* Profile Image for Light Mode - Same Style as Dark Mode */
+body.light-mode #profile-img {
+    border: 3px solid var(--color-accent-primary-light);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+body.light-mode #profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(255, 195, 106, 0.3);
+}
+
+/* Social Icons for Light Mode - Same Style as Dark Mode */
+body.light-mode #right-socials a {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+body.light-mode #right-socials a:hover {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    border-color: var(--color-accent-primary-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 195, 106, 0.25);
+}
+
+body.light-mode #right-socials a:hover svg {
+    color: #FFFFFF;
+}
+
+body.light-mode #right-socials svg {
+    color: var(--color-text-secondary-light);
+}
+
+/* Light Mode Service Cards - Same Excellent Design as Dark Mode */
 body.light-mode .service-card,
 body.light-mode .project-card {
-    background: var(--color-card-light);
-    border: 1px solid var(--color-border-light);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-    border-radius: 12px; /* Softer corners for modern look */
-    padding: 24px; /* More generous padding for better whitespace */
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.4) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 106, 0.1);
+    border-radius: 24px;
+    padding: 48px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
 
-body.light-mode .service-card:hover,
-body.light-mode .project-card:hover {
-    background: var(--color-bg-secondary-light);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
-    border-color: var(--color-border-light);
-    transform: translateY(-1px); /* Subtle movement */
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother easing */
+/* Light Mode Holographic Border Effect */
+body.light-mode .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: conic-gradient(from 0deg at 50% 50%, 
+        transparent 0deg,
+        rgba(255, 195, 106, 0.1) 90deg,
+        transparent 180deg,
+        rgba(255, 195, 106, 0.1) 270deg,
+        transparent 360deg);
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
-/* Remove all gradient backgrounds and patterns */
-body.light-mode .service-card::before,
+/* Light Mode Scanning Line Effect */
 body.light-mode .service-card::after {
-    display: none;
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 195, 106, 0.8), 
+        transparent);
+    transition: all 0.6s ease;
+    z-index: 1;
 }
 
-/* Clean service badge styling */
+/* Light Mode Service Card Hover - Same as Dark Mode */
+body.light-mode .service-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255, 195, 106, 0.3);
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 195, 106, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .service-card:hover::before {
+    opacity: 1;
+}
+
+body.light-mode .service-card:hover::after {
+    top: 100%;
+    transition: top 0.6s ease;
+}
+
+body.light-mode .project-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: rgba(255, 195, 106, 0.3);
+    box-shadow: 
+        0 25px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 195, 106, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Light Mode Service Badge - Enhanced Design */
 body.light-mode .service-badge {
-    background: var(--color-accent-light);
-    border: 1px solid var(--color-border-light);
-    color: var(--color-accent-primary);
-    font-weight: 500;
+    background: linear-gradient(135deg, var(--color-accent-bg-light), rgba(255, 195, 106, 0.2));
+    border: 1px solid rgba(255, 195, 106, 0.3);
+    color: var(--color-accent-primary-light);
+    font-weight: 600;
+    font-size: 12px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 body.light-mode .service-card:hover .service-badge {
-    background: var(--color-accent-primary);
-    color: var(--color-cta-text-light);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(255, 195, 106, 0.3);
+    border-color: transparent;
+    transform: scale(1.05);
 }
 
-/* Enhanced text readability in light mode */
+/* Light Mode Service Icons - Enhanced Design */
+body.light-mode .service-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-accent-bg-light), rgba(255, 195, 106, 0.2));
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .service-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+body.light-mode .service-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-accent-primary-light);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+body.light-mode .service-card:hover .service-icon {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(255, 195, 106, 0.3);
+    border-color: transparent;
+}
+
+body.light-mode .service-card:hover .service-icon::before {
+    left: 100%;
+}
+
+body.light-mode .service-card:hover .service-icon svg {
+    color: #FFFFFF;
+    transform: scale(1.1);
+}
+
+/* Light Mode Enhanced Text Readability - Same Quality as Dark Mode */
 body.light-mode .service-title {
     color: var(--color-text-primary-light);
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+    transition: all 0.3s ease;
 }
 
 body.light-mode .service-description {
     color: var(--color-text-secondary-light);
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
 }
 
 body.light-mode .service-card:hover .service-description {
     color: var(--color-text-primary-light);
+    transform: translateY(-2px);
+}
+
+body.light-mode .service-card:hover .service-title {
+    color: var(--color-accent-primary-light);
+    transform: translateY(-2px);
+}
+
+/* Light Mode Section Headers - Enhanced Design */
+body.light-mode .section-title {
+    background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+body.light-mode .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    border-radius: 2px;
+}
+
+body.light-mode .section-subtitle {
+    color: var(--color-text-secondary-light);
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 60px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Light Mode Header Enhancement - Same Quality as Dark Mode */
+body.light-mode .main-header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 195, 106, 0.1);
+}
+
+body.light-mode .header-nav-main ul li a {
+    color: var(--color-text-secondary-light);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+body.light-mode .header-nav-main ul li a:hover {
+    color: var(--color-accent-primary-light);
+}
+
+body.light-mode .header-nav-main ul li a.active {
+    color: var(--color-accent-primary-light);
+    position: relative;
+}
+
+/* Enhanced CTA Button for Light Mode - Complete Dark Mode Design Copy */
+body.light-mode .cta-button {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 56px;
+    padding: 0 32px;
+    border: 2px solid rgba(255, 195, 106, 0.4);
+    border-radius: 28px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+    box-shadow: 
+        0 8px 32px rgba(255, 195, 106, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+body.light-mode .cta-button:hover {
+    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 16px 48px rgba(255, 195, 106, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 195, 106, 0.5);
+    letter-spacing: 1.5px;
+}
+
+body.light-mode .cta-button.secondary {
+    background: transparent;
+    color: var(--color-accent-primary-light);
+    border: 1px solid var(--color-accent-primary-light);
+}
+
+body.light-mode .cta-button.secondary:hover {
+    background: var(--color-accent-primary-light);
+    color: #FFFFFF;
 }
 
 /* Remove all background patterns and grid lines */
 body.light-mode::before,
 body.light-mode::after {
     display: none;
+}
+
+/* Modern Section Backgrounds for Light Mode */
+body.light-mode #what-i-do-section {
+    background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+    position: relative;
+}
+
+body.light-mode #what-i-do-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 107, 53, 0.2) 50%, transparent 100%);
+}
+
+/* Modern Footer for Light Mode */
+body.light-mode .main-footer {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F1F3F4 100%);
+    border-top: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+body.light-mode .footer-brand-name {
+    background: linear-gradient(135deg, #FF6B35 0%, #E53E3E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+body.light-mode .footer-column-title {
+    color: var(--color-text-primary-light);
+    font-weight: 600;
+}
+
+body.light-mode .footer-nav-list a:hover,
+body.light-mode .footer-contact-item a:hover {
+    color: #FF6B35;
+}
+
+/* Modern Input Styling for Light Mode */
+body.light-mode .search-input {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-text-primary-light);
+    border-radius: 12px;
+    padding: 10px 16px;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .search-input:focus {
+    border-color: #FF6B35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+    outline: none;
+}
+
+/* Simple Theme Toggle for Light Mode - Same as Dark Mode */
+body.light-mode .theme-toggle {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .theme-toggle:hover {
+    background: transparent;
+}
+
+/* Remove all background patterns and grid lines */
+body.light-mode::before,
+body.light-mode::after {
+    display: none;
+}
+
+/* Clean Section Backgrounds for Light Mode */
+body.light-mode #what-i-do-section {
+    background: var(--color-bg-primary-light);
+}
+
+body.light-mode #what-i-do-section::before {
+    display: none;
+}
+
+/* Clean Footer for Light Mode */
+body.light-mode .main-footer {
+    background: #FFFFFF;
+    border-top: 1px solid var(--color-border-light);
+}
+
+body.light-mode .footer-brand-name {
+    color: var(--color-text-primary-light);
+    font-weight: 600;
+    /* Remove gradient text effect */
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+}
+
+body.light-mode .footer-column-title {
+    color: var(--color-text-primary-light);
+    font-weight: 600;
+}
+
+body.light-mode .footer-nav-list a:hover,
+body.light-mode .footer-contact-item a:hover {
+    color: var(--color-accent-primary-light);
+}
+
+/* Clean Input Styling for Light Mode */
+body.light-mode .search-input {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border-light);
+    color: var(--color-text-primary-light);
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+body.light-mode .search-input:focus {
+    border-color: var(--color-accent-primary-light);
+    box-shadow: 0 0 0 2px rgba(255, 195, 106, 0.2);
+    outline: none;
+}
+
+/* Clean Theme Toggle for Light Mode */
+body.light-mode .theme-toggle {
+    background: #FFFFFF;
+    border: none;
+    padding: 6px;
+    transition: all 0.2s ease;
+}
+
+body.light-mode .theme-toggle:hover {
+    background: transparent;
+}
+
+body.light-mode .theme-toggle:hover svg {
+    color: var(--color-accent-primary-light);
+}
+
+/* Clean Featured Projects Section for Light Mode */
+body.light-mode #featured-projects-section {
+    background: #FFFFFF;
+}
+
+/* Light Mode Project Cards - Enhanced to Match Dark Mode Excellence */
+body.light-mode .project-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+body.light-mode .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-primary-light), transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+}
+
+body.light-mode .project-card:hover::before {
+    left: 100%;
+}
+
+body.light-mode .project-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 195, 106, 0.4);
+}
+
+body.light-mode .project-image::after {
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.8) 0%, rgba(221, 107, 32, 0.8) 100%);
+}
+
+body.light-mode .project-card:hover .project-image::after {
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.9) 0%, rgba(221, 107, 32, 0.9) 100%);
+}
+
+/* Enhanced Tools & Skills Section for Light Mode - Match Dark Mode Quality */
+body.light-mode #tools-skills-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+    position: relative;
+}
+
+body.light-mode #tools-skills-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 195, 106, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(221, 107, 32, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+body.light-mode .skill-tag,
+body.light-mode .tech-tag {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 245, 245, 0.6) 100%);
+    color: var(--color-text-primary-light);
+    border: 1px solid rgba(255, 195, 106, 0.3);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .skill-tag::before,
+body.light-mode .tech-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 195, 106, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+body.light-mode .skill-tag:hover,
+body.light-mode .tech-tag:hover {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: white;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(255, 195, 106, 0.3);
+    border-color: transparent;
+}
+
+body.light-mode .skill-tag:hover::before,
+body.light-mode .tech-tag:hover::before {
+    left: 100%;
+}
+
+/* Light Mode Contact Section Enhancement */
+body.light-mode .contact-form {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .form-input,
+body.light-mode .form-textarea {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    color: var(--color-text-primary-light);
+    border-radius: 8px;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-mode .form-input:focus,
+body.light-mode .form-textarea:focus {
+    border-color: var(--color-accent-primary-light);
+    box-shadow: 0 0 0 3px rgba(255, 195, 106, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Enhanced Timeline Section for Light Mode */
+body.light-mode #timeline-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+}
+
+body.light-mode .timeline-item {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+    position: relative;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+body.light-mode .timeline-item:hover {
+    border-color: rgba(255, 195, 106, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    border-radius: 2px 0 0 2px;
+}
+
+body.light-mode .timeline-date {
+    background: var(--color-accent-bg-light);
+    color: var(--color-accent-primary-light);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+/* Ultra-Clean Achievements Section for Light Mode */
+body.light-mode #achievements-section {
+    background: var(--color-bg-primary-light);
+}
+
+body.light-mode .achievement-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 20px;
+    transition: border-color 0.2s ease;
+    box-shadow: none;
+}
+
+body.light-mode .achievement-card::before {
+    display: none;
+}
+
+body.light-mode .achievement-card:hover {
+    border-color: rgba(255, 195, 106, 0.4);
+    transform: none;
+    box-shadow: none;
+}
+
+body.light-mode .achievement-card:hover {
+    border-color: rgba(255, 195, 106, 0.4);
+    transform: none;
+    box-shadow: none;
+}
+
+body.light-mode .achievement-icon {
+    background: var(--color-accent-bg-light);
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+body.light-mode .achievement-icon svg {
+    color: var(--color-accent-primary-light);
+    width: 24px;
+    height: 24px;
+}
+
+/* Ultra-Clean Blog Preview Section for Light Mode */
+body.light-mode #blog-preview-section {
+    background: #FFFFFF;
+}
+
+body.light-mode .blog-card {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+    box-shadow: none;
+}
+
+body.light-mode .blog-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: rgba(255, 195, 106, 0.4);
+}
+
+body.light-mode .blog-meta {
+    color: var(--color-text-tertiary-light);
+    font-size: 13px;
+}
+
+body.light-mode .blog-category {
+    background: var(--color-accent-bg-light);
+    color: var(--color-accent-primary-light);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+/* Ultra-Clean Contact Section for Light Mode */
+body.light-mode #contact-section {
+    background: var(--color-bg-primary-light);
+}
+
+body.light-mode #contact-section::before {
+    display: none;
+}
+
+body.light-mode .contact-form {
+    background: #FFFFFF;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: none;
+}
+
+body.light-mode .contact-input,
+body.light-mode .contact-textarea {
+    background: var(--color-bg-primary-light);
+    border: 1px solid var(--color-border-light);
+    border-radius: 6px;
+    padding: 12px;
+    color: var(--color-text-primary-light);
+    transition: border-color 0.2s ease;
+}
+
+body.light-mode .contact-input:focus,
+body.light-mode .contact-textarea:focus {
+    background: #FFFFFF;
+    border-color: var(--color-accent-primary-light);
+    box-shadow: none;
+    outline: none;
 }
 
 /* General Body Styles */
@@ -541,7 +1391,7 @@ body.light-mode .main-header {
         #FFA500,
         var(--color-accent-primary));
     background-size: 400% 400%;
-    border-radius: 30px;
+    
     z-index: -1;
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -624,6 +1474,58 @@ body:not(.light-mode) .cta-button:hover {
 
 .cta-button:hover .button-icon {
     transform: translateX(4px) rotate(10deg);
+}
+
+/* CTA Button SVG Icon Theme Support */
+.cta-button svg,
+.cta-button svg path,
+.cta-button svg use,
+.cta-button .button-icon,
+.cta-button .button-icon svg,
+.cta-button .button-icon svg path,
+.cta-button .button-icon svg use {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+/* Dark Mode - SVG icons should be light colored */
+body:not(.light-mode) .cta-button svg,
+body:not(.light-mode) .cta-button svg path,
+body:not(.light-mode) .cta-button svg use,
+body:not(.light-mode) .cta-button .button-icon,
+body:not(.light-mode) .cta-button .button-icon svg,
+body:not(.light-mode) .cta-button .button-icon svg path,
+body:not(.light-mode) .cta-button .button-icon svg use {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+/* Light Mode - SVG icons should be dark colored */
+body.light-mode .cta-button svg,
+body.light-mode .cta-button svg path,
+body.light-mode .cta-button svg use,
+body.light-mode .cta-button .button-icon,
+body.light-mode .cta-button .button-icon svg,
+body.light-mode .cta-button .button-icon svg path,
+body.light-mode .cta-button .button-icon svg use {
+    fill: #1C1C1D !important;
+    stroke: #1C1C1D !important;
+    color: #1C1C1D !important;
+}
+
+/* Specific override for header Hire Me button to reverse colors */
+/* Light Mode - Header button SVG should be WHITE */
+body.light-mode #hireMeBtn svg,
+body.light-mode #hireMeBtn svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+/* Dark Mode - Header button SVG should be BLACK */
+body:not(.light-mode) #hireMeBtn svg,
+body:not(.light-mode) #hireMeBtn svg path {
+    fill: #000000 !important;
+    stroke: #000000 !important;
 }
 
 /* Icon Buttons (Search, Dark Mode Toggle, Hamburger) */
@@ -721,6 +1623,15 @@ body.light-mode .search-input-wrapper {
     visibility: visible;
     transform: translateX(0);
     width: 250px; /* Expanded width for input */
+}
+
+/* Hide hire me button when search is active */
+.search-input-wrapper.active ~ .cta-button,
+.header-utilities-cta:has(.search-input-wrapper.active) .cta-button {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
 
 .search-input {
@@ -3402,10 +4313,191 @@ body.light-mode .category-header {
     border-bottom: 1px solid #E2E8F0;
 }
 
-/* Light Mode Footer */
+/* Enhanced Light Mode Footer - Match Dark Mode Excellence */
 body.light-mode footer {
-    background: var(--color-bg-secondary-light);
-    border-top: 1px solid #E2E8F0;
+    background: linear-gradient(135deg, rgba(240, 244, 248, 0.9) 0%, rgba(226, 232, 240, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 195, 106, 0.2);
+    position: relative;
+}
+
+body.light-mode footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 90%, rgba(255, 195, 106, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 10%, rgba(221, 107, 32, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Enhanced Light Mode Footer Hover Effects */
+body.light-mode .footer-nav-list li a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .footer-nav-list li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    transition: width 0.3s ease;
+}
+
+body.light-mode .footer-nav-list li a:hover {
+    color: var(--color-accent-primary-light) !important;
+    transform: translateY(-1px);
+}
+
+body.light-mode .footer-nav-list li a:hover::before {
+    width: 100%;
+}
+
+body.light-mode .footer-contact-item a:hover {
+    color: var(--color-accent-primary-light) !important;
+    transform: translateY(-1px);
+}
+
+body.light-mode .footer-social-link {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+body.light-mode .footer-social-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background: rgba(255, 195, 106, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+body.light-mode .footer-social-link:hover::before {
+    width: 40px;
+    height: 40px;
+}
+
+body.light-mode .footer-social-link:hover .footer-social-icon {
+    fill: var(--color-accent-primary-light) !important;
+    stroke: var(--color-accent-primary-light) !important;
+    color: var(--color-accent-primary-light) !important;
+    transform: scale(1.1);
+}
+
+body.light-mode .footer-bottom-link {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+body.light-mode .footer-bottom-link::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--color-accent-primary-light);
+    transition: width 0.3s ease;
+}
+
+body.light-mode .footer-bottom-link:hover {
+    color: var(--color-accent-primary-light) !important;
+    transform: translateY(-1px);
+}
+
+body.light-mode .footer-bottom-link:hover::before {
+    width: 100%;
+}
+
+/* Enhanced Light Mode Hero & About Sections - Match Dark Mode Quality */
+body.light-mode .hero-section,
+body.light-mode .about-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+    position: relative;
+}
+
+body.light-mode .hero-section::before,
+body.light-mode .about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 195, 106, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(221, 107, 32, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+body.light-mode .about-card,
+body.light-mode .hero-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .about-card::before,
+body.light-mode .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-primary-light), transparent);
+    transition: left 0.8s ease;
+}
+
+body.light-mode .about-card:hover::before,
+body.light-mode .hero-card:hover::before {
+    left: 100%;
+}
+
+body.light-mode .about-card:hover,
+body.light-mode .hero-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 195, 106, 0.3);
+}
+
+/* Enhanced Dark Mode Footer Hover Effects */
+body:not(.light-mode) .footer-nav-list li a:hover {
+    color: #ffd700 !important;
+}
+
+body:not(.light-mode) .footer-contact-item a:hover {
+    color: #ffd700 !important;
+}
+
+body:not(.light-mode) .footer-social-link:hover .footer-social-icon {
+    fill: #ffd700 !important;
+    stroke: #ffd700 !important;
+    color: #ffd700 !important;
+}
+
+body:not(.light-mode) .footer-bottom-link:hover {
+    color: #ffd700 !important;
 }
 
 /* Light Mode Hero Name - Orange Text */
@@ -4308,6 +5400,7 @@ body:not(.light-mode) .stage-number {
         0 20px 50px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(252, 200, 108, 0.1);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1; /* Ensure the entire map container stays below header */
 }
 
 .contact-map:hover {
@@ -4321,6 +5414,27 @@ body:not(.light-mode) .stage-number {
     width: 100%;
     height: 100%;
     border-radius: 20px;
+    z-index: 1; /* Keep map below header */
+    position: relative; /* Create stacking context */
+}
+
+/* Fix for Leaflet map controls z-index to prevent them from appearing above the header */
+.leaflet-control-container .leaflet-control,
+.leaflet-control-zoom,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control,
+#map .leaflet-control-container,
+#map .leaflet-control-zoom {
+    z-index: 999 !important;
+}
+
+/* Additional fix - target all possible Leaflet elements */
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-left,
+.leaflet-right {
+    z-index: 999 !important;
 }
 
 .map-overlay {
@@ -4733,14 +5847,15 @@ body.light-mode #timeline-section {
 }
 
 body.light-mode .timeline-content {
-    background: rgba(var(--color-bg-secondary-rgb-light), 0.7);
+    background: rgba(255, 255, 255, 0.9);
     color: var(--color-text-primary-light);
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 body.light-mode .timeline-content:hover {
-    background: var(--color-hover-light);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
     transition: all 0.2s ease;
 }
@@ -4749,13 +5864,24 @@ body.light-mode .timeline-title {
     color: var(--color-text-primary-light);
 }
 
+body.light-mode .timeline-date {
+    color: var(--color-accent-primary);
+}
+
+body.light-mode .timeline-description {
+    color: var(--color-text-secondary-light);
+}
+
 body.light-mode .achievement-item {
-    background: #F8F9FA;
-    border-left-color: var(--color-accent-primary);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--color-accent-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 body.light-mode .achievement-item:hover {
-    background: var(--color-hover-light);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     transform: translateX(4px);
     transition: all 0.2s ease;
 }
@@ -4764,51 +5890,267 @@ body.light-mode .achievement-item span {
     color: var(--color-text-primary-light);
 }
 
-body.light-mode .next-steps .timeline-content {
-    background: linear-gradient(135deg, #FBD38D, #FFF3CD);
-    border-color: var(--color-accent-primary);
+body.light-mode .achievement-item p {
+    color: var(--color-text-secondary-light);
 }
 
+body.light-mode .next-steps .timeline-content {
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.2), rgba(255, 243, 205, 0.3));
+    border: 1px solid var(--color-accent-primary);
+}
+
+/* Enhanced Light Mode Achievements Section - Match Design Excellence */
 body.light-mode #achievements-section {
-    background: transparent;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+    position: relative;
+}
+
+body.light-mode #achievements-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 195, 106, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(221, 107, 32, 0.03) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 body.light-mode .achievement-card {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-primary-light), transparent);
+    transition: left 0.8s ease;
+    z-index: 1;
+}
+
+body.light-mode .achievement-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 195, 106, 0.03) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 body.light-mode .achievement-card:hover {
-    background: var(--color-hover-light);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 195, 106, 0.4);
 }
 
+body.light-mode .achievement-card:hover::before {
+    left: 100%;
+}
+
+body.light-mode .achievement-card:hover::after {
+    opacity: 1;
+}
+
+/* Enhanced Achievement Card Elements for Light Mode */
+body.light-mode .achievement-card h3,
 body.light-mode .achievement-card-title {
+    color: var(--color-text-primary-light);
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+body.light-mode .achievement-card:hover h3,
+body.light-mode .achievement-card:hover .achievement-card-title {
+    color: var(--color-accent-primary-light);
+    transform: translateY(-2px);
+}
+
+body.light-mode .achievement-card p {
+    color: var(--color-text-secondary-light);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .achievement-card:hover p {
     color: var(--color-text-primary-light);
 }
 
 body.light-mode .achievement-card-header {
-    border-bottom-color: rgba(255, 195, 106, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 195, 106, 0.3);
+    position: relative;
+}
+
+body.light-mode .achievement-card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    transition: width 0.5s ease;
+}
+
+body.light-mode .achievement-card:hover .achievement-card-header::after {
+    width: 100%;
 }
 
 body.light-mode .achievement-icon-wrapper {
-    background: rgba(255, 195, 106, 0.2);
-    border-color: rgba(255, 195, 106, 0.4);
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.2) 0%, rgba(255, 195, 106, 0.1) 100%);
+    border: 1px solid rgba(255, 195, 106, 0.4);
+    border-radius: 12px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
+body.light-mode .achievement-icon-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 195, 106, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+body.light-mode .achievement-card:hover .achievement-icon-wrapper {
+    background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
+    border-color: transparent;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 24px rgba(255, 195, 106, 0.3);
+}
+
+body.light-mode .achievement-card:hover .achievement-icon-wrapper::before {
+    left: 100%;
+}
+
+body.light-mode .achievement-main-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-accent-primary-light);
+    transition: all 0.3s ease;
+}
+
+body.light-mode .achievement-card:hover .achievement-main-icon {
+    fill: white;
+    transform: scale(1.1);
+}
+
+/* Enhanced Achievement Entries for Light Mode */
 body.light-mode .achievement-entry {
-    background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 245, 245, 0.6) 100%);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .achievement-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-primary-light), transparent);
+    transition: left 0.6s ease;
 }
 
 body.light-mode .achievement-entry:hover {
-    background: var(--color-hover-light);
-    border-color: var(--color-border-light);
-    transform: translateX(4px);
-    transition: all 0.2s ease;
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.1) 0%, rgba(255, 195, 106, 0.05) 100%);
+    border-color: rgba(255, 195, 106, 0.4);
+    transform: translateX(8px);
+    box-shadow: 0 4px 16px rgba(255, 195, 106, 0.2);
+}
+
+body.light-mode .achievement-entry:hover::before {
+    left: 100%;
+}
+
+body.light-mode .achievement-entry h4 {
+    color: var(--color-text-primary-light);
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .achievement-entry:hover h4 {
+    color: var(--color-accent-primary-light);
+}
+
+body.light-mode .achievement-entry p {
+    color: var(--color-text-secondary-light);
+    margin: 0;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .achievement-entry:hover p {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .achievement-date {
+    color: var(--color-accent-primary-light);
+    font-weight: 500;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .achievement-entry:hover .achievement-date {
+    opacity: 1;
+    color: var(--color-accent-hover-light);
+}
+
+/* Achievement List Styling for Light Mode */
+body.light-mode .achievement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+body.light-mode .achievement-category {
+    margin-bottom: 32px;
 }
 
 body.light-mode .achievement-details h4 {
@@ -4868,67 +6210,414 @@ body.light-mode #blog-preview-section {
     background: transparent;
 }
 
+/* Enhanced Light Mode Blog Post Cards - Match Design Excellence */
 body.light-mode .blog-post-card {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: rgba(0, 0, 0, 0.06);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body.light-mode .blog-post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-primary-light), transparent);
+    transition: left 0.8s ease;
+    z-index: 2;
+}
+
+body.light-mode .blog-post-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 195, 106, 0.03) 50%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+body.light-mode .blog-post-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 195, 106, 0.4);
+}
+
+body.light-mode .blog-post-card:hover::before {
+    left: 100%;
+}
+
+body.light-mode .blog-post-card:hover::after {
+    opacity: 1;
+}
+
+/* Enhanced Blog Post Content Elements for Light Mode */
+body.light-mode .blog-post-card h3,
+body.light-mode .blog-post-title {
+    color: var(--color-text-primary-light);
+    font-weight: 700;
+    font-size: 20px;
+    margin: 0;
+    line-height: 1.4;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+body.light-mode .blog-post-card:hover h3,
+body.light-mode .blog-post-card:hover .blog-post-title {
+    color: var(--color-accent-primary-light);
+    transform: translateY(-2px);
+}
+
+body.light-mode .blog-post-card p,
+body.light-mode .blog-post-excerpt {
+    color: var(--color-text-secondary-light);
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+body.light-mode .blog-post-card:hover p,
+body.light-mode .blog-post-card:hover .blog-post-excerpt {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .blog-post-meta {
+    color: var(--color-text-secondary-light);
+    border-top: 1px solid rgba(255, 195, 106, 0.2);
+    padding-top: 16px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+body.light-mode .blog-post-meta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    transition: width 0.5s ease;
+}
+
+body.light-mode .blog-post-card:hover .blog-post-meta::before {
+    width: 100%;
+}
+
+body.light-mode .blog-post-date {
+    color: var(--color-text-primary-light);
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.15) 0%, rgba(255, 195, 106, 0.1) 100%);
+    border: 1px solid rgba(255, 195, 106, 0.3);
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-body.light-mode .blog-post-card:hover {
-    background: var(--color-hover-light);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-    transition: all 0.2s ease;
+body.light-mode .blog-post-card:hover .blog-post-date {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 195, 106, 0.3);
 }
 
-body.light-mode .blog-post-title {
-    color: var(--color-text-primary-light);
-}
-
-body.light-mode .blog-post-excerpt {
-    color: var(--color-text-secondary-light);
-}
-
-body.light-mode .blog-post-date {
-    color: var(--color-text-tertiary-light);
-    background: rgba(255, 195, 106, 0.1);
-    border-color: rgba(255, 195, 106, 0.2);
-}
-
-body.light-mode .blog-post-meta {
-    border-top-color: rgba(0, 0, 0, 0.1);
-}
-
+/* Enhanced Blog Post Link Button for Light Mode */
 body.light-mode .blog-post-link {
-    background: rgba(255, 195, 106, 0.1);
-    color: var(--color-accent-primary);
-    border-color: rgba(255, 195, 106, 0.2);
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.15) 0%, rgba(255, 195, 106, 0.1) 100%);
+    color: var(--color-accent-primary-light);
+    border: 1px solid rgba(255, 195, 106, 0.3);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px 16px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
 }
 
-body.light-mode .blog-post-image {
-    background: linear-gradient(135deg, rgba(255, 195, 106, 0.12) 0%, rgba(255, 195, 106, 0.06) 100%);
-    border-bottom-color: rgba(0, 0, 0, 0.1);
-}
-
-body.light-mode .blog-post-placeholder {
-    background: rgba(255, 195, 106, 0.15);
-}
-
-body.light-mode .blog-post-card:hover .blog-post-placeholder {
-    background: rgba(255, 195, 106, 0.25);
+body.light-mode .blog-post-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 195, 106, 0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 body.light-mode .blog-post-link:hover {
-    background: var(--color-hover-light);
-    color: var(--color-text-primary);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: white;
+    border-color: transparent;
+    transform: translateX(2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 195, 106, 0.4);
 }
 
+body.light-mode .blog-post-link:hover::before {
+    left: 100%;
+}
+
+/* Enhanced Blog Post Visual Elements for Light Mode */
+body.light-mode .blog-post-image {
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.15) 0%, rgba(255, 195, 106, 0.08) 100%);
+    border-bottom: 1px solid rgba(255, 195, 106, 0.2);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .blog-post-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 195, 106, 0.2) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    opacity: 0;
+}
+
+body.light-mode .blog-post-card:hover .blog-post-image::before {
+    transform: translateX(100%);
+    opacity: 1;
+}
+
+body.light-mode .blog-post-placeholder {
+    font-size: 48px;
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 8px rgba(255, 195, 106, 0.2));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, rgba(255, 195, 106, 0.2) 0%, rgba(255, 195, 106, 0.1) 100%);
+    padding: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border: 1px solid rgba(255, 195, 106, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+body.light-mode .blog-post-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 195, 106, 0.3), transparent);
+    transition: left 0.6s ease;
+    border-radius: 50%;
+}
+
+body.light-mode .blog-post-card:hover .blog-post-placeholder {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 1;
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: white;
+    filter: drop-shadow(0 6px 20px rgba(255, 195, 106, 0.4));
+    border-color: transparent;
+}
+
+body.light-mode .blog-post-card:hover .blog-post-placeholder::before {
+    left: 100%;
+}
+
+body.light-mode .blog-post-link:hover::before {
+    left: 100%;
+}
+
+/* Enhanced Blog Section Background for Light Mode */
+body.light-mode #blog-preview-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+    position: relative;
+}
+
+body.light-mode #blog-preview-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 30%, rgba(255, 195, 106, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(221, 107, 32, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
 
 body.light-mode #contact-section {
     background: transparent;
+}
+
+/* ==================== ADDITIONAL HOME PAGE LIGHT MODE STYLES ==================== */
+
+/* Hero Banner Section */
+body.light-mode #Hero-Banner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9));
+}
+
+body.light-mode .hero-content h1 {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .hero-content p,
+body.light-mode .hero-description {
+    color: var(--color-text-secondary-light);
+}
+
+body.light-mode .hero-stats .stat-number {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .hero-stats .stat-label {
+    color: var(--color-text-secondary-light);
+}
+
+/* What I Do Section */
+body.light-mode #what-i-do-section {
+    background: rgba(248, 249, 250, 0.8);
+}
+
+body.light-mode .what-i-do-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .what-i-do-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+body.light-mode .what-i-do-card h3 {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .what-i-do-card p {
+    color: var(--color-text-secondary-light);
+}
+
+body.light-mode .what-i-do-icon {
+    color: var(--color-accent-primary);
+}
+
+/* Featured Projects Section */
+body.light-mode #featured-projects-section {
+    background: transparent;
+}
+
+body.light-mode .project-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .project-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+}
+
+body.light-mode .project-card h3 {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .project-card p {
+    color: var(--color-text-secondary-light);
+}
+
+body.light-mode .project-tech-tag {
+    background: rgba(255, 195, 106, 0.15);
+    color: #B8860B;
+    border: 1px solid rgba(255, 195, 106, 0.3);
+}
+
+/* Tools & Skills Section */
+body.light-mode #tools-skills-section {
+    background: rgba(248, 249, 250, 0.8);
+}
+
+body.light-mode .skills-category {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .skills-category:hover {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+body.light-mode .skills-category h3 {
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .skill-item {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: var(--color-text-secondary-light);
+}
+
+/* Remove skill-item hover effect completely */
+
+body.light-mode .tools-grid-item,
+body.light-mode .skill-tag {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    color: var(--color-text-secondary-light);
+}
+
+body.light-mode .tools-grid-item:hover,
+body.light-mode .skill-tag:hover {
+    background: rgba(255, 195, 106, 0.15);
+    border-color: var(--color-accent-primary);
+    color: var(--color-text-primary-light);
 }
 
 
@@ -4974,6 +6663,32 @@ body.light-mode .map-overlay {
 /* ==================== SECTION HEADERS IMPROVEMENTS ==================== */
 body.light-mode .section-title {
     color: var(--color-text-primary-light);
+}
+
+body.light-mode .section-subtitle {
+    color: var(--color-text-secondary-light);
+}
+
+body.light-mode .section-description {
+    color: var(--color-text-secondary-light);
+}
+
+/* General light mode improvements for buttons and links */
+body.light-mode .btn-primary {
+    background: var(--color-accent-primary);
+    border-color: var(--color-accent-primary);
+    color: #1C1C1D;
+}
+
+body.light-mode .btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: var(--color-text-primary-light);
+}
+
+body.light-mode .btn-secondary:hover {
+    background: rgba(255, 195, 106, 0.1);
+    border-color: var(--color-accent-primary);
 }
 
 body.light-mode .section-subtitle {
@@ -5212,6 +6927,13 @@ body.light-mode .form-group textarea::-webkit-scrollbar-thumb:hover {
     border-top: 8px solid var(--color-text-secondary);
     pointer-events: none;
     z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when select is focused/clicked */
+.select-group select:focus + label::after,
+.select-group:focus-within::after {
+    transform: rotate(180deg);
 }
 
 /* Only show arrow on select groups, not other form groups */
@@ -5383,6 +7105,117 @@ body:not(.light-mode) .checkbox-label {
     transform: translateX(6px) rotate(15deg);
 }
 
+/* User-Friendly Submit Button for Light Mode */
+body.light-mode .submit-button {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: white;
+    font-family: var(--font-family-primary);
+    font-size: 16px;
+    font-weight: 600;
+    height: 50px;
+    padding: 0 32px;
+    border: 1px solid rgba(255, 195, 106, 0.3);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(255, 195, 106, 0.25);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
+    z-index: 2;
+}
+
+body.light-mode .submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+body.light-mode .submit-button:hover {
+    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 195, 106, 0.35);
+    border-color: rgba(255, 195, 106, 0.5);
+}
+
+body.light-mode .submit-button:hover::before {
+    left: 100%;
+}
+
+body.light-mode .submit-button .button-icon {
+    width: 18px;
+    height: 18px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+body.light-mode .submit-button:hover .button-icon {
+    transform: translateX(2px);
+}
+
+/* User-Friendly Checkbox Styling for Light Mode */
+body.light-mode .checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+body.light-mode .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 195, 106, 0.4);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+body.light-mode .checkbox:checked {
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    border-color: var(--color-accent-primary-light);
+}
+
+body.light-mode .checkbox-label {
+    color: var(--color-text-secondary-light);
+    font-size: 14px;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.light-mode .checkbox:checked + .checkbox-label {
+    color: var(--color-text-primary-light);
+}
+
+/* Fix form row spacing */
+body.light-mode .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+body.light-mode .form-group {
+    margin-bottom: 16px;
+}
+
 /* ==================== LIGHT MODE CONTACT STYLING ==================== */
 body.light-mode .contact-header-icon {
     background: var(--color-accent-primary);
@@ -5411,62 +7244,152 @@ body.light-mode .map-overlay:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* User-Friendly Light Mode Contact Form Wrapper - Fixed */
 body.light-mode .contact-form-wrapper {
-    background: var(--color-card-light);
-    border: 1px solid var(--color-border-light);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-body.light-mode .contact-form-wrapper:hover {
-    background: var(--color-hover-light);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 body.light-mode .contact-form-wrapper::before {
-    background: linear-gradient(135deg, 
-        rgba(255, 199, 106, 0.08) 0%, 
-        transparent 30%,
-        rgba(255, 199, 106, 0.05) 70%,
-        transparent 100%);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent-primary-light), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
 }
 
+body.light-mode .contact-form-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 195, 106, 0.03) 0%, 
+        transparent 30%,
+        rgba(255, 195, 106, 0.02) 70%,
+        transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+body.light-mode .contact-form-wrapper:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 195, 106, 0.3);
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+body.light-mode .contact-form-wrapper:hover::before {
+    left: 100%;
+}
+
+body.light-mode .contact-form-wrapper:hover::after {
+    opacity: 1;
+}
+
+/* User-Friendly Form Title & Subtitle for Light Mode */
 body.light-mode .form-title {
     color: var(--color-text-primary-light);
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.3;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+body.light-mode .contact-form-wrapper:hover .form-title {
+    transform: translateY(-1px);
 }
 
 body.light-mode .form-subtitle {
     color: var(--color-text-secondary-light);
+    font-size: 16px;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+    text-align: center;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
+body.light-mode .contact-form-wrapper:hover .form-subtitle {
+    color: var(--color-text-primary-light);
+}
+
+/* User-Friendly Form Elements for Light Mode */
 body.light-mode .form-group label {
     color: var(--color-text-primary-light);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+    display: block;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
 body.light-mode .form-group input,
 body.light-mode .form-group textarea,
 body.light-mode .form-group select {
-    background: rgba(255, 255, 255, 0.6);
-    border-color: rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(245, 245, 245, 0.6) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 195, 106, 0.2);
     color: var(--color-text-primary-light);
-    box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.03),
-        0 1px 2px rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 body.light-mode .form-group input:focus,
 body.light-mode .form-group textarea:focus,
 body.light-mode .form-group select:focus {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: var(--color-accent-primary);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.8) 100%);
+    border-color: var(--color-accent-primary-light);
     box-shadow: 
-        0 0 0 4px rgba(255, 199, 106, 0.12),
-        inset 0 2px 4px rgba(0, 0, 0, 0.03),
-        0 8px 25px rgba(255, 199, 106, 0.15);
+        0 0 0 3px rgba(255, 195, 106, 0.1),
+        0 4px 12px rgba(255, 195, 106, 0.15);
+    outline: none;
 }
 
 body.light-mode .form-group input::placeholder,
 body.light-mode .form-group textarea::placeholder {
-    color: var(--color-text-placeholder-light);
+    color: var(--color-text-secondary-light);
+    opacity: 0.7;
+    font-size: 14px;
 }
 
 body.light-mode .form-group select {
@@ -5474,6 +7397,27 @@ body.light-mode .form-group select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    cursor: pointer;
+    padding-right: 40px;
+}
+
+/* Enhanced Contact Section Background for Light Mode */
+body.light-mode #contact-section {
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.9) 0%, rgba(241, 245, 249, 0.8) 100%);
+    position: relative;
+}
+
+body.light-mode #contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(255, 195, 106, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(221, 107, 32, 0.02) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 /* Dark mode dropdown arrow */
@@ -5498,6 +7442,12 @@ body:not(.light-mode) .form-group select option {
 
 body.light-mode .select-group::after {
     border-top-color: var(--color-text-secondary-light);
+    transition: transform 0.3s ease;
+}
+
+/* Light mode dropdown rotation */
+body.light-mode .select-group:focus-within::after {
+    transform: rotate(180deg);
 }
 
 /* ==================== DARK MODE CONTACT STYLING ==================== */
@@ -5553,6 +7503,12 @@ body:not(.light-mode) .form-group select:focus {
 
 body:not(.light-mode) .select-group::after {
     border-top-color: var(--color-text-secondary-dark);
+    transition: transform 0.3s ease;
+}
+
+/* Dark mode dropdown rotation */
+body:not(.light-mode) .select-group:focus-within::after {
+    transform: rotate(180deg);
 }
 
 /* ==================== CONTACT RESPONSIVE DESIGN ==================== */
@@ -5774,7 +7730,7 @@ body:not(.light-mode) .select-group::after {
 .main-footer {
     background: var(--color-bg-secondary-light);
     border-top: 1px solid var(--color-border-light);
-    margin-top: 60px;
+    margin-top: 0;
 }
 
 .light-mode .main-footer {
@@ -6220,5 +8176,931 @@ body:not(.light-mode) .footer-bottom-link {
 }
 
 /* ==================== END FOOTER STYLING ==================== */
+
+/* ==================== ABOUT PAGE STYLING ==================== */
+
+/* About Me Section */
+#about-me-section {
+    padding: 120px 0 80px;
+    position: relative;
+    background-color: var(--color-bg-primary);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* About Image */
+.about-image-wrapper {
+    position: relative;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-decoration {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 3px solid var(--color-accent-primary);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* About Text */
+.about-text {
+    color: var(--color-text-primary);
+}
+
+.about-header {
+    margin-bottom: 40px;
+}
+
+.about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+    color: var(--color-bg-primary);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.about-badge .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.about-description {
+    margin-bottom: 40px;
+}
+
+.about-description p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+}
+
+.intro-paragraph {
+    font-size: 18px !important;
+    color: var(--color-text-primary) !important;
+    font-weight: 500;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    background: var(--color-bg-secondary);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent-primary);
+    display: block;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+/* Tech Stack Section */
+#tech-stack-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.tech-stack-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Tech Stack Visual (Top) */
+.tech-stack-visual {
+    position: relative;
+    text-align: center;
+}
+
+.tech-stack-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tech-stack-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.tech-visual-decoration {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: 20px;
+    bottom: 20px;
+    border: 3px solid var(--color-accent-primary);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* Tech Stack Text (Middle) */
+.tech-stack-text {
+    color: var(--color-text-primary);
+    text-align: center;
+}
+
+.tech-stack-header {
+    margin-bottom: 40px;
+}
+
+.tech-stack-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+    color: var(--color-bg-primary);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.tech-stack-badge .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.tech-stack-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.tech-stack-description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.tech-stack-description p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: var(--color-text-secondary);
+}
+
+/* Tech Categories Slider (Bottom) */
+.tech-categories-wrapper {
+    position: relative;
+    margin-top: 40px;
+}
+
+.tech-categories-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.tech-categories-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.tech-categories {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.3s ease;
+    padding: 0;
+}
+
+.tech-category {
+    background: var(--color-bg-primary);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    min-width: 280px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tech-category-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tech-tag {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Slider Controls */
+.tech-slider-btn {
+    background: var(--color-bg-primary);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--color-text-primary);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+}
+
+.tech-slider-btn:hover {
+    background: var(--color-accent-primary);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent-primary);
+    transform: scale(1.1);
+}
+
+.tech-slider-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Slider Dots */
+.tech-slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.tech-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: none;
+    background: var(--color-border);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tech-dot.active {
+    background: var(--color-accent-primary);
+    transform: scale(1.2);
+}
+
+.tech-dot:hover {
+    background: var(--color-accent-primary);
+    transform: scale(1.1);
+}
+
+/* Values Section */
+#values-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-primary);
+}
+
+.values-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.values-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.values-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+    color: var(--color-bg-primary);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.values-badge .icon {
+    width: 16px;
+    height: 16px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.value-card {
+    background: var(--color-bg-secondary);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.value-icon .icon {
+    width: 28px;
+    height: 28px;
+    color: var(--color-bg-primary);
+}
+
+.value-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+}
+
+.value-description {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+/* About CTA Section */
+#about-cta-section {
+    padding: 60px 0 30px;
+    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#about-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 195, 106, 0.95), 
+        rgba(255, 171, 64, 0.95));
+    z-index: 1;
+}
+
+#about-cta-section * {
+    position: relative;
+    z-index: 2;
+}
+
+.about-cta-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-cta-content {
+    color: #1C1C1D;
+}
+
+.about-cta-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #1C1C1D;
+    font-family: var(--font-family-nav);
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-cta-description {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    color: #2D3748;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+}
+
+.about-cta-buttons {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.about-cta-buttons .cta-button {
+    padding: 18px 36px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    min-width: 180px;
+    justify-content: center;
+    font-family: var(--font-family-nav);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-cta-buttons .cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.5s ease;
+}
+
+.about-cta-buttons .cta-button.primary {
+    background: #1C1C1D;
+    color: #FFFFFF;
+    border: 2px solid #1C1C1D;
+    box-shadow: 0 8px 32px rgba(28, 28, 29, 0.3);
+}
+
+.about-cta-buttons .cta-button.secondary {
+    background: #1C1C1D;
+    color: #FFFFFF;
+    border: 2px solid #1C1C1D;
+    box-shadow: 0 8px 32px rgba(28, 28, 29, 0.3);
+}
+
+.about-cta-buttons .cta-button:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.about-cta-buttons .cta-button.primary:hover {
+    background: #2D3748;
+    color: #FFFFFF;
+    box-shadow: 0 16px 48px rgba(28, 28, 29, 0.4);
+}
+
+.about-cta-buttons .cta-button.secondary:hover {
+    background: #2D3748;
+    color: #FFFFFF;
+    box-shadow: 0 16px 48px rgba(28, 28, 29, 0.4);
+}
+
+.about-cta-buttons .cta-button:hover::before {
+    left: 100%;
+}
+
+.about-cta-buttons .cta-button .button-icon {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+}
+
+.about-cta-buttons .cta-button:hover .button-icon {
+    transform: translateX(4px) rotate(5deg);
+}
+
+/* SVG Icon Colors for About CTA Buttons */
+.about-cta-buttons .cta-button .button-icon,
+.about-cta-buttons .cta-button .button-icon svg,
+.about-cta-buttons .cta-button .button-icon use,
+.about-cta-buttons .cta-button svg,
+.about-cta-buttons .cta-button svg path {
+    transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.about-cta-buttons .cta-button.primary .button-icon,
+.about-cta-buttons .cta-button.primary svg,
+.about-cta-buttons .cta-button.primary svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+.about-cta-buttons .cta-button.secondary .button-icon,
+.about-cta-buttons .cta-button.secondary svg,
+.about-cta-buttons .cta-button.secondary svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+.about-cta-buttons .cta-button.secondary:hover .button-icon,
+.about-cta-buttons .cta-button.secondary:hover svg,
+.about-cta-buttons .cta-button.secondary:hover svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+/* Dark Mode Styles for About CTA Section */
+body:not(.light-mode) #about-cta-section {
+    background: linear-gradient(135deg, var(--color-accent-primary), #D69E2E);
+}
+
+body:not(.light-mode) #about-cta-section::before {
+    background: linear-gradient(135deg, 
+        rgba(255, 195, 106, 0.9), 
+        rgba(214, 158, 46, 0.9));
+}
+
+body:not(.light-mode) .about-cta-content {
+    color: #1C1C1D;
+}
+
+body:not(.light-mode) .about-cta-title {
+    color: #1C1C1D;
+}
+
+body:not(.light-mode) .about-cta-description {
+    color: #2D3748;
+}
+
+/* Light Mode Styles for About CTA Section */
+body.light-mode #about-cta-section {
+    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+}
+
+body.light-mode #about-cta-section::before {
+    background: linear-gradient(135deg, 
+        rgba(255, 195, 106, 0.95), 
+        rgba(255, 171, 64, 0.95));
+}
+
+body.light-mode .about-cta-content {
+    color: #1C1C1D;
+}
+
+body.light-mode .about-cta-title {
+    color: #1C1C1D;
+}
+
+body.light-mode .about-cta-description {
+    color: #2D3748;
+}
+
+/* Dark Mode Button Icon Colors */
+body:not(.light-mode) .about-cta-buttons .cta-button.primary .button-icon,
+body:not(.light-mode) .about-cta-buttons .cta-button.primary .button-icon svg,
+body:not(.light-mode) .about-cta-buttons .cta-button.primary .button-icon use,
+body:not(.light-mode) .about-cta-buttons .cta-button.primary svg,
+body:not(.light-mode) .about-cta-buttons .cta-button.primary svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary .button-icon,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary .button-icon svg,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary .button-icon use,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary svg,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover .button-icon,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover .button-icon svg,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover .button-icon use,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover svg,
+body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+/* Light Mode Button Icon Colors */
+body.light-mode .about-cta-buttons .cta-button.primary .button-icon,
+body.light-mode .about-cta-buttons .cta-button.primary .button-icon svg,
+body.light-mode .about-cta-buttons .cta-button.primary .button-icon use,
+body.light-mode .about-cta-buttons .cta-button.primary svg,
+body.light-mode .about-cta-buttons .cta-button.primary svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+body.light-mode .about-cta-buttons .cta-button.secondary .button-icon,
+body.light-mode .about-cta-buttons .cta-button.secondary .button-icon svg,
+body.light-mode .about-cta-buttons .cta-button.secondary .button-icon use,
+body.light-mode .about-cta-buttons .cta-button.secondary svg,
+body.light-mode .about-cta-buttons .cta-button.secondary svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon,
+body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon svg,
+body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon use,
+body.light-mode .about-cta-buttons .cta-button.secondary:hover svg,
+body.light-mode .about-cta-buttons .cta-button.secondary:hover svg path {
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 350px 1fr;
+        gap: 60px;
+    }
+    
+    .about-title {
+        font-size: 3rem;
+    }
+    
+    .tech-stack-title {
+        font-size: 2.5rem;
+    }
+    
+    .tech-stack-image img {
+        height: 350px;
+    }
+    
+    .tech-category {
+        min-width: 250px;
+    }
+    
+    /* About CTA responsive styles */
+    .about-cta-container {
+        max-width: 800px;
+        padding: 0 30px;
+    }
+    
+    .about-cta-title {
+        font-size: 3rem;
+    }
+    
+    .about-cta-description {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 768px) {
+    #about-me-section {
+        padding: 80px 0 60px;
+    }
+    
+    #about-cta-section {
+        padding: 50px 0 20px;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+    
+    .about-title {
+        font-size: 2.5rem;
+    }
+    
+    .tech-stack-title {
+        font-size: 2rem;
+    }
+    
+    .tech-stack-image img {
+        height: 300px;
+    }
+    
+    .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .about-cta-title {
+        font-size: 2.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .about-cta-description {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+    
+    .about-cta-buttons {
+        gap: 20px;
+    }
+    
+    .about-cta-buttons .cta-button {
+        padding: 16px 32px;
+        font-size: 15px;
+        min-width: 160px;
+    }
+    
+    /* Show slider controls on tablet and mobile */
+    .tech-slider-btn {
+        display: flex;
+    }
+    
+    .tech-category {
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container,
+    .tech-stack-container,
+    .values-container,
+    .about-cta-container {
+        padding: 0 16px;
+    }
+    
+    #about-cta-section {
+        padding: 40px 0 15px;
+    }
+    
+    .profile-image {
+        height: 400px;
+    }
+    
+    .tech-stack-image img {
+        height: 250px;
+    }
+    
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stat-item {
+        padding: 15px;
+    }
+    
+    .value-card {
+        padding: 25px;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .tech-stack-title {
+        font-size: 1.8rem;
+    }
+    
+    .about-cta-title {
+        font-size: 2.2rem;
+        margin-bottom: 16px;
+    }
+    
+    .about-cta-description {
+        font-size: 16px;
+        margin-bottom: 35px;
+        padding: 0 10px;
+    }
+    
+    .about-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    .about-cta-buttons .cta-button {
+        width: 100%;
+        max-width: 280px;
+        padding: 16px 24px;
+        font-size: 14px;
+    }
+    
+    .tech-categories-slider {
+        gap: 10px;
+    }
+    
+    .tech-slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .tech-category {
+        min-width: 200px;
+        padding: 20px;
+    }
+}
+
+/* Desktop: Hide slider controls */
+@media (min-width: 1200px) {
+    .tech-slider-btn,
+    .tech-slider-dots {
+        display: none;
+    }
+    
+    .tech-categories {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .tech-category {
+        min-width: 250px;
+        flex: 1;
+        max-width: 280px;
+    }
+}
+
+/* ==================== END ABOUT PAGE STYLING ==================== */
 
 /* ==================== END LIGHT MODE IMPROVEMENTS ==================== */
