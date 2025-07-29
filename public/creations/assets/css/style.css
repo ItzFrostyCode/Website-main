@@ -141,6 +141,8 @@ html {
     /* Dark Mode Palette */
     --color-bg-primary-dark: #252728; /* Body background in dark mode */
     --color-bg-secondary-dark: #1C1C1D; /* Header/card background in dark mode */
+    --color-accent-primary-dark: #ffc36a; /* Accent color in dark mode */
+    --color-accent-hover-dark: #DD6B20; /* Accent hover color in dark mode */
     --color-bg-tertiary-dark: #2A2B2C; /* Section background in dark mode */
     --color-bg-secondary-dark-rgb: 28, 28, 29; /* RGB values for transparency */
     --color-text-primary-dark: #F0F0F0; /* Main text color in dark mode */
@@ -274,65 +276,39 @@ body.light-mode #Regular-18 {
     font-weight: 400;
 }
 
-/* Light Mode CTA Button - Same Excellent Design as Dark Mode */
+/* === Base CTA Button === */
+#CTA-CV {
+  display: block;
+  width: fit-content;
+  height: 53px;
+  padding: 12px 24px;
+
+  font-family: var(--font-family-nav, Poppins, sans-serif);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  cursor: pointer;
+
+  border: 2px solid rgba(255, 195, 106, 0.3);
+  border-radius: 8px;
+  box-shadow:
+    0 8px 32px rgba(255, 195, 106, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  background: linear-gradient(135deg, rgb(255, 195, 106), rgb(221, 107, 32));
+  transition: all 0.3s ease;
+}
+
+/* === Light Mode Text Color === */
 body.light-mode #CTA-CV {
-    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
-    color: #FFFFFF;
-    border: 2px solid rgba(255, 195, 106, 0.3);
-    box-shadow: 
-        0 8px 32px rgba(255, 195, 106, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    font-weight: 500;
-    text-transform: none;
-    letter-spacing: 0;
-    border-radius: 8px;
-    padding: 12px 24px;
+  color: #FFFFFF; /* White text */
 }
 
-body.light-mode #CTA-CV:hover {
-    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-        0 16px 48px rgba(255, 195, 106, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 195, 106, 0.5);
-}
-
-/* Light Mode Header CTA Button - Same Consistency */
-body.light-mode .cta-button {
-    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
-    color: #FFFFFF;
-    border: 2px solid rgba(255, 195, 106, 0.3);
-    box-shadow: 
-        0 8px 32px rgba(255, 195, 106, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-weight: 500;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-body.light-mode .cta-button:hover {
-    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 
-        0 16px 48px rgba(255, 195, 106, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
-    border-color: rgba(255, 195, 106, 0.5);
-}
-
-body.light-mode .cta-button.secondary {
-    background: transparent;
-    color: var(--color-accent-primary-light);
-    border: 2px solid var(--color-accent-primary-light);
-    box-shadow: none;
-}
-
-body.light-mode .cta-button.secondary:hover {
-    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
-    color: #FFFFFF;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 195, 106, 0.3);
+/* === Dark Mode Text Color === */
+body.dark-mode #CTA-CV {
+  color: #1C1C1D; /* Black text */
 }
 
 /* Profile Image for Light Mode - Same Style as Dark Mode */
@@ -347,29 +323,6 @@ body.light-mode #profile-img:hover {
     box-shadow: 0 12px 40px rgba(255, 195, 106, 0.3);
 }
 
-/* Social Icons for Light Mode - Same Style as Dark Mode */
-body.light-mode #right-socials a {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 195, 106, 0.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-body.light-mode #right-socials a:hover {
-    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
-    border-color: var(--color-accent-primary-light);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 195, 106, 0.25);
-}
-
-body.light-mode #right-socials a:hover svg {
-    color: #FFFFFF;
-}
-
-body.light-mode #right-socials svg {
-    color: var(--color-text-secondary-light);
-}
 
 /* Light Mode Service Cards - Same Excellent Design as Dark Mode */
 body.light-mode .service-card,
@@ -386,26 +339,99 @@ body.light-mode .project-card {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 }
+/* === Base Social Icon Styles === */
+#right-socials {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spacing between icons */
+  justify-content: center;
+  align-items: flex-end;
+  max-width: 400px;
+  position: relative;
+  z-index: 15;
 
-/* Light Mode Holographic Border Effect */
-body.light-mode .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: conic-gradient(from 0deg at 50% 50%, 
-        transparent 0deg,
-        rgba(255, 195, 106, 0.1) 90deg,
-        transparent 180deg,
-        rgba(255, 195, 106, 0.1) 270deg,
-        transparent 360deg);
-    border-radius: 24px;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: -1;
+  /* Fade-in Animation */
+  opacity: 0;
+  animation: fadeInRight 0.8s ease-out 1.0s forwards;
 }
+
+#right-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  transition: all 0.3s ease;
+  color: var(--color-text-primary);
+}
+
+#right-socials svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-primary);
+  transition: color 0.3s ease;
+}
+
+#right-socials .icon {
+  height: 24px;
+  transition: color 0.35s ease;
+  display: block;
+}
+
+/* === Light Mode === */
+body.light-mode #right-socials a {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 195, 106, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+body.light-mode #right-socials a:hover {
+  background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+  border-color: var(--color-accent-primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 195, 106, 0.25);
+}
+
+body.light-mode #right-socials a:hover svg {
+  color: #ffffff;
+}
+
+body.light-mode #right-socials svg {
+  color: var(--color-text-secondary-light);
+}
+
+/* === Dark Mode === */
+body:not(.light-mode) #right-socials a {
+  background: rgba(28, 28, 29, 0.9);
+  border: 1px solid rgba(255, 195, 106, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+body:not(.light-mode) #right-socials a:hover {
+  background: linear-gradient(135deg, var(--color-accent-primary-dark), var(--color-accent-hover-dark));
+  border-color: var(--color-accent-primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 195, 106, 0.25);
+}
+
+body:not(.light-mode) #right-socials a:hover svg {
+  color: #ffffff;
+}
+
+body:not(.light-mode) #right-socials svg {
+  color: var(--color-text-secondary-dark);
+}
+
+
 
 /* Light Mode Scanning Line Effect */
 body.light-mode .service-card::after {
@@ -600,7 +626,7 @@ body.light-mode .main-header {
 
 body.light-mode .header-nav-main ul li a {
     color: var(--color-text-secondary-light);
-    font-weight: 500;
+    font-weight: 300;
     transition: all 0.3s ease;
     position: relative;
 }
@@ -1245,8 +1271,8 @@ body:not(.light-mode) .project-tech svg {
     backdrop-filter: blur(16px);
     border: 1px solid var(--color-glass-border);
     box-shadow: 
-        0 8px 16px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 body:not(.light-mode) .project-tech svg:hover {
@@ -1323,15 +1349,7 @@ body.light-mode .tech-tag:hover::before {
 }
 
 /* Light Mode Contact Section Enhancement */
-body.light-mode .contact-form {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 195, 106, 0.2);
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-}
+
 
 body.light-mode .form-input,
 body.light-mode .form-textarea {
@@ -1484,13 +1502,7 @@ body.light-mode #contact-section::before {
     display: none;
 }
 
-body.light-mode .contact-form {
-    background: #FFFFFF;
-    border: 1px solid var(--color-border-light);
-    border-radius: 8px;
-    padding: 24px;
-    box-shadow: none;
-}
+
 
 body.light-mode .contact-input,
 body.light-mode .contact-textarea {
@@ -1685,13 +1697,13 @@ body.light-mode .main-header {
 }
 
 .header-nav-main ul li a:hover {
-    color: var(--color-text-primary);
+    color: var(--color-accent-primary-light);
     transform: translateY(-1px);
 }
 
 /* Enhanced hover for dark mode */
 .dark-mode .header-nav-main ul li a:hover {
-    color: var(--color-text-primary);
+    color: var(--color-accent-primary-light);
 }
 
 .header-nav-main ul li a.active {
@@ -2021,7 +2033,7 @@ body:not(.light-mode) #hireMeBtn svg path {
 
 /* Search Specific Styles */
 .search-container {
-    position: relative; /* For positioning the input field */
+    position: relative; 
     display: flex;
     align-items: center;
 }
@@ -2201,7 +2213,7 @@ pre { /* Block code */
 }
 
 /* Hide desktop nav and show hamburger on smaller screens */
-@media (max-width: 1024px) {
+@media (max-width: 1125px) {
     .main-header {
         padding: 8px 5%;
     }
@@ -2489,28 +2501,7 @@ pre { /* Block code */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-#CTA-CV {
-    font-family: var(--font-family-nav);
-    font-weight: 500;
-    font-size: 16px;
-    color: var(--color-accent-primary);
-    background-color: transparent;
-    border: 2px solid var(--color-accent-primary);
-    border-radius: 8px;
-    padding: 12px 24px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: fit-content;
-    letter-spacing: 0.5px;
-}
 
-#CTA-CV:hover {
-    background-color: var(--color-accent-primary);
-    color: var(--color-cta-text);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(252, 200, 108, 0.3);
-}
 
 #middle-profile {
     flex: 0 0 auto;
@@ -2540,71 +2531,7 @@ pre { /* Block code */
     transform: scale(1.05);
 }
 
-#right-socials {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: flex-end;
-    max-width: 400px;
-    position: relative;
-    z-index: 15;
-    
-    /* Fade-in Animation */
-    opacity: 0;
-    animation: fadeInRight 0.8s ease-out 1.0s forwards;
-}
 
-#right-socials a {
-    color: var(--color-text-primary);
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: var(--color-bg-secondary);
-    transition: all 0.3s ease;
-    border: 1px solid var(--color-border);
-}
-
-#right-socials a:hover {
-    color: var(--color-accent-primary);
-    background-color: var(--color-accent-primary);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(252, 200, 108, 0.4);
-}
-
-#right-socials a:hover svg {
-    color: var(--color-cta-text);
-}
-
-#right-socials svg {
-    width: 20px;
-    height: 20px;
-    color: var(--color-text-primary);
-    transition: color 0.3s ease;
-}
-
-/* Social Icon Theme Colors */
-#right-socials .icon {
-    transition: color 0.3s ease;
-    width: 20px;
-    height: 20px;
-}
-
-#right-socials .facebook-icon,
-#right-socials .telegram-icon,
-#right-socials .youtube-icon,
-#right-socials .linkedin-icon,
-#right-socials .github-icon,
-#right-socials .gmail-icon {
-    color: var(--color-text-primary);
-}
 
 /* Hero Name Styling */
 .hero-name {
@@ -5088,6 +5015,9 @@ body.light-mode *:hover {
 
 /* ==================== END LIGHT MODE IMPROVEMENTS ==================== */
 
+
+
+
 /* ==================== TIMELINE SECTION ==================== */
 #timeline-section {
     padding: 80px 0;
@@ -7416,9 +7346,7 @@ body.light-mode .map-overlay {
 }
 
 /* ==================== SECTION HEADERS IMPROVEMENTS ==================== */
-body.light-mode .section-title {
-    color: var(--color-text-primary-light);
-}
+
 
 body.light-mode .section-subtitle {
     color: var(--color-text-secondary-light);
@@ -7451,9 +7379,27 @@ body.light-mode .section-subtitle {
 }
 
 body:not(.light-mode) .section-title {
-    color: var(--color-text-primary-dark);
+    background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
 }
-
+body:not(.light-mode) .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, rgb(255, 149, 0), rgb(255, 94, 98));
+    border-radius: 2px;
+}
 body:not(.light-mode) .section-subtitle {
     color: var(--color-text-secondary-dark);
 }
@@ -7860,65 +7806,57 @@ body:not(.light-mode) .checkbox-label {
     transform: translateX(6px) rotate(15deg);
 }
 
-/* User-Friendly Submit Button for Light Mode */
+/* Light Mode Submit Button - Styled to Match Dark Mode Aesthetic */
+/* Matched Light Mode Submit Button Style */
 body.light-mode .submit-button {
-    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
-    color: white;
-    font-family: var(--font-family-primary);
-    font-size: 16px;
-    font-weight: 600;
-    height: 50px;
-    padding: 0 32px;
-    border: 1px solid rgba(255, 195, 106, 0.3);
-    border-radius: 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(255, 195, 106, 0.25);
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
-    gap: 8px;
-    width: 100%;
     justify-content: center;
-    margin-top: 16px;
-    z-index: 2;
-}
-
-body.light-mode .submit-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
+    gap: 16px;
     width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
+    max-width: 834px;
 
-body.light-mode .submit-button:hover {
-    background: linear-gradient(135deg, var(--color-accent-hover-light), #D69E2E);
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(255, 195, 106, 0.35);
-    border-color: rgba(255, 195, 106, 0.5);
-}
+    height: 64px;
+    margin-top: 20px;
+    padding: 0 40px;
 
-body.light-mode .submit-button:hover::before {
-    left: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+
+    background-image: linear-gradient(135deg, rgb(255, 195, 106), rgb(221, 107, 32));
+    background-color: transparent;
+    background-clip: border-box;
+    background-origin: padding-box;
+
+    color: white;
+    border: 2px solid rgba(252, 200, 108, 0.4);
+    border-radius: 32px;
+
+    box-shadow: 
+        rgba(252, 200, 108, 0.3) 0px 12px 40px 0px,
+        rgba(255, 255, 255, 0.2) 0px 1px 0px 0px inset;
+
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
 }
 
 body.light-mode .submit-button .button-icon {
     width: 18px;
     height: 18px;
-    color: white;
-    transition: transform 0.3s ease;
+    color: rgb(28, 28, 29);
+    transition: none;
 }
 
-body.light-mode .submit-button:hover .button-icon {
-    transform: translateX(2px);
-}
+
 
 /* User-Friendly Checkbox Styling for Light Mode */
 body.light-mode .checkbox-wrapper {
@@ -8001,15 +7939,20 @@ body.light-mode .map-overlay:hover {
 
 /* User-Friendly Light Mode Contact Form Wrapper - Fixed */
 body.light-mode .contact-form-wrapper {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 245, 0.7) 100%);
     border: 1px solid rgba(255, 195, 106, 0.2);
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 12px 32px, rgba(255, 255, 255, 0.3) 0px 1px 0px inset;
+
+    color: rgb(28, 30, 33);
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
     padding: 32px;
-    box-shadow: 
-        0 12px 32px rgba(0, 0, 0, 0.06),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    width: 900px;
+    box-sizing: border-box;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -8232,20 +8175,23 @@ body:not(.light-mode) .map-overlay {
 
 /* Enhanced Dark Mode Contact Form Wrapper - Match Light Mode Excellence */
 body:not(.light-mode) .contact-form-wrapper {
-    background: linear-gradient(145deg, rgba(28, 28, 29, 0.9) 0%, rgba(20, 20, 21, 0.7) 100%);
     backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: linear-gradient(145deg, rgba(28, 28, 29, 0.9) 0%, rgba(20, 20, 21, 0.7) 100%);
     border: 1px solid rgba(252, 200, 108, 0.2);
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 32px, rgba(255, 255, 255, 0.1) 0px 1px 0px inset;
+    color: rgb(240, 240, 240);
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
     padding: 32px;
-    box-shadow: 
-        0 12px 32px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    width: 900px;
+    box-sizing: border-box;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
 }
-
 body:not(.light-mode) .contact-form-wrapper::before {
     content: '';
     position: absolute;
@@ -8383,219 +8329,65 @@ body:not(.light-mode) .select-group:focus-within::after {
     transform: rotate(180deg);
 }
 
-/* ==================== CONTACT RESPONSIVE DESIGN ==================== */
+/* ==================== CONTACT FORM RESPONSIVE DESIGN ==================== */
 @media (max-width: 1024px) {
-    .contact-content {
-        gap: 50px;
-        max-width: 100%;
-        padding: 0 20px;
-    }
-    
-    .contact-form-wrapper {
-        padding: 36px;
-    }
-    
-    .form-title {
-        font-size: 20px;
-    }
+  .contact-form-wrapper,
+  body.light-mode .contact-form-wrapper,
+  body:not(.light-mode) .contact-form-wrapper {
+    width: 100%;
+    max-width: 700px;
+    padding: 28px;
+  }
+  .form-row,
+  body.light-mode .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 @media (max-width: 768px) {
-    #contact-section {
-        padding: 80px 0;
-    }
-    
-    .contact-header {
-        margin-bottom: 60px;
-    }
-    
-    .contact-header-icon {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 24px;
-    }
-    
-    .contact-header-icon .icon {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .contact-content {
-        gap: 40px;
-        padding: 0 16px;
-    }
-    
-    .contact-map {
-        height: 300px;
-        border-radius: 16px;
-    }
-    
-    #map {
-        border-radius: 16px;
-    }
-    
-    .map-overlay {
-        top: 16px;
-        left: 16px;
-        padding: 16px 20px;
-        border-radius: 12px;
-    }
-    
-    .location-info h3 {
-        font-size: 16px;
-    }
-    
-    .location-info p {
-        font-size: 14px;
-    }
-    
-    .contact-form-wrapper {
-        padding: 28px;
-        border-radius: 20px;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-    
-    .form-title {
-        font-size: 18px;
-    }
-    
-    .form-subtitle {
-        font-size: 15px;
-        margin-bottom: 32px;
-    }
-    
-    .form-group {
-        margin-bottom: 24px;
-    }
-    
-    .form-group label {
-        font-size: 13px;
-        margin-bottom: 8px;
-    }
-    
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        padding: 16px 20px;
-        font-size: 16px;
-        border-radius: 12px;
-    }
-    
-    .form-group textarea {
-        min-height: 120px;
-    }
-    
-    .form-group select {
-        background-size: 18px;
-        padding-right: 44px;
-    }
-    
-    .submit-button {
-        height: 56px;
-        font-size: 16px;
-        padding: 0 32px;
-        border-radius: 28px;
-    }
-    
-    .button-icon {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .checkbox-label {
-        font-size: 14px;
-        padding: 12px;
-    }
-    
-    .checkmark {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .checkmark::after {
-        left: 6px;
-        top: 2px;
-        width: 5px;
-        height: 10px;
-        border-width: 0 2px 2px 0;
-    }
+  .contact-form-wrapper,
+  body.light-mode .contact-form-wrapper,
+  body:not(.light-mode) .contact-form-wrapper {
+    width: 100%;
+    max-width: 98vw;
+    padding: 18px 6vw;
+    border-radius: 14px;
+  }
+  .form-title,
+  body.light-mode .form-title,
+  body:not(.light-mode) .form-title {
+    font-size: 20px;
+  }
+  .form-subtitle,
+  body.light-mode .form-subtitle,
+  body:not(.light-mode) .form-subtitle {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 480px) {
-    #contact-section {
-        padding: 60px 0;
-    }
-    
-    .contact-header {
-        margin-bottom: 40px;
-    }
-    
-    .contact-header-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 20px;
-    }
-    
-    .contact-header-icon .icon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .contact-content {
-        gap: 32px;
-        padding: 0 12px;
-    }
-    
-    .contact-map {
-        height: 250px;
-        border-radius: 12px;
-    }
-    
-    #map {
-        border-radius: 12px;
-    }
-    
-    .contact-form-wrapper {
-        padding: 20px;
-        border-radius: 16px;
-    }
-    
-    .form-title {
-        font-size: 18px;
-    }
-    
-    .form-subtitle {
-        font-size: 14px;
-        margin-bottom: 28px;
-    }
-    
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        padding: 14px 16px;
-        font-size: 14px;
-        border-radius: 10px;
-    }
-    
-    .submit-button {
-        height: 48px;
-        font-size: 14px;
-        padding: 0 24px;
-        border-radius: 24px;
-        gap: 12px;
-    }
-    
-    .button-icon {
-        width: 18px;
-        height: 18px;
-    }
+  .contact-form-wrapper,
+  body.light-mode .contact-form-wrapper,
+  body:not(.light-mode) .contact-form-wrapper {
+    padding: 10px 2vw;
+    border-radius: 8px;
+    min-width: unset;
+    width: 100vw;
+    box-shadow: none;
+  }
+  .form-title,
+  body.light-mode .form-title,
+  body:not(.light-mode) .form-title {
+    font-size: 16px;
+  }
+  .form-subtitle,
+  body.light-mode .form-subtitle,
+  body:not(.light-mode) .form-subtitle {
+    font-size: 13px;
+  }
 }
-
-/* ==================== END CONTACT FORM STYLING ==================== */
+/* ==================== CONTACT FORM RESPONSIVE DESIGN END ==================== */
 
 /* ==================== FOOTER STYLING ==================== */
 
@@ -9269,19 +9061,15 @@ body:not(.light-mode) .footer-bottom-link {
 }
 
 .about-title {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--color-text-primary);
-    margin: 0;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, 
-        var(--color-text-primary) 0%, 
-        var(--color-accent-primary) 100%);
+    background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientCycle 6s ease-in-out infinite;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .about-description {
@@ -9532,19 +9320,15 @@ body:not(.light-mode) .footer-bottom-link {
 }
 
 .tech-stack-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--color-text-primary);
-    margin: 0;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, 
-        var(--color-text-primary) 0%, 
-        var(--color-accent-primary) 100%);
+    background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientCycle 6s ease-in-out infinite;
+    font-weight: 800;
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 .tech-stack-description {
@@ -9574,10 +9358,11 @@ body:not(.light-mode) .footer-bottom-link {
 }
 
 .tech-categories-container {
-    flex: 1;
-    overflow: hidden;
-    border-radius: 16px;
+  flex: 1;
+  overflow: visible; 
+  border-radius: 16px;
 }
+
 
 .tech-categories {
     display: flex;
@@ -9949,11 +9734,10 @@ body:not(.light-mode) .footer-bottom-link {
     position: relative;
     z-index: 2;
 }
-
-/* Enhanced About CTA Section */
+/* About CTA Section */
 #about-cta-section {
     padding: 100px 0 60px;
-    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-hover)); /* Uses accent colors for background */
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -9966,12 +9750,12 @@ body:not(.light-mode) .footer-bottom-link {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
+    background:
         radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-        linear-gradient(135deg, 
-            rgba(255, 195, 106, 0.95), 
-            rgba(255, 171, 64, 0.95));
+        linear-gradient(135deg,
+            var(--color-accent-primary), /* Uses accent colors for background overlay */
+            var(--color-accent-hover));
     z-index: 1;
 }
 
@@ -9982,12 +9766,19 @@ body:not(.light-mode) .footer-bottom-link {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.1), 
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
         transparent);
     animation: scanningLine 6s infinite;
     z-index: 2;
+}
+
+/* Keyframe for scanning line animation */
+@keyframes scanningLine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: -100%; }
 }
 
 #about-cta-section * {
@@ -10001,15 +9792,16 @@ body:not(.light-mode) .footer-bottom-link {
     padding: 0 20px;
 }
 
+/* Base text colors for CTA section content (will be overridden by light/dark mode) */
 .about-cta-content {
-    color: #1C1C1D;
+    color: var(--color-cta-text); /* This variable will be white in light mode, black in dark mode */
 }
 
 .about-cta-title {
     font-size: 4rem;
     font-weight: 900;
     margin-bottom: 28px;
-    color: #1C1C1D;
+    color: var(--color-cta-text); /* This variable will be white in light mode, black in dark mode */
     font-family: var(--font-family-nav);
     letter-spacing: -0.03em;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -10020,7 +9812,7 @@ body:not(.light-mode) .footer-bottom-link {
     font-size: 21px;
     line-height: 1.6;
     margin-bottom: 60px;
-    color: #2D3748;
+    color: var(--color-cta-text); /* This variable will be white in light mode, black in dark mode */
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -10036,7 +9828,9 @@ body:not(.light-mode) .footer-bottom-link {
     align-items: center;
 }
 
-.about-cta-buttons .cta-button {
+.about-cta-buttons .cta-button,
+.about-cta-buttons .cta-button-primary, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary { /* Added for direct targeting */
     padding: 20px 40px;
     border-radius: 16px;
     font-weight: 800;
@@ -10046,7 +9840,7 @@ body:not(.light-mode) .footer-bottom-link {
     align-items: center;
     gap: 14px;
     transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    border: 2px solid transparent;
+    border: 2px solid transparent; /* Base transparent border */
     min-width: 200px;
     justify-content: center;
     font-family: var(--font-family-nav);
@@ -10055,210 +9849,253 @@ body:not(.light-mode) .footer-bottom-link {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(16px);
-    box-shadow: 
+    box-shadow:
         0 16px 32px rgba(0, 0, 0, 0.2),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.about-cta-buttons .cta-button::before {
+.about-cta-buttons .cta-button::before,
+.about-cta-buttons .cta-button-primary::before, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary::before { /* Added for direct targeting */
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.2), 
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
         transparent);
     transition: left 0.6s ease;
 }
 
-.about-cta-buttons .cta-button.primary {
-    background: rgba(28, 28, 29, 0.9);
-    color: #FFFFFF;
-    border: 2px solid rgba(28, 28, 29, 0.8);
-    box-shadow: 
-        0 20px 40px rgba(28, 28, 29, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/* Hover effects for all CTA buttons */
+.about-cta-buttons .cta-button:hover,
+.about-cta-buttons .cta-button-primary:hover, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary:hover { /* Added for direct targeting */
+    transform: translateY(-8px) scale(1.05); /* Subtle lift and scale on hover */
+    border-color: rgba(255, 255, 255, 0.3); /* General hover border */
 }
 
-.about-cta-buttons .cta-button.secondary {
-    background: rgba(28, 28, 29, 0.9);
-    color: #FFFFFF;
-    border: 2px solid rgba(28, 28, 29, 0.8);
-    box-shadow: 
-        0 20px 40px rgba(28, 28, 29, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+.about-cta-buttons .cta-button:hover::before,
+.about-cta-buttons .cta-button-primary:hover::before, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary:hover::before { /* Added for direct targeting */
+    left: 100%; /* Scanning line effect on hover */
 }
 
-.about-cta-buttons .cta-button:hover {
-    transform: translateY(-8px) scale(1.05);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.about-cta-buttons .cta-button.primary:hover {
-    background: rgba(45, 55, 72, 0.95);
-    color: #FFFFFF;
-    box-shadow: 
-        0 32px 64px rgba(28, 28, 29, 0.5),
-        0 16px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.about-cta-buttons .cta-button.secondary:hover {
-    background: rgba(45, 55, 72, 0.95);
-    color: #FFFFFF;
-    box-shadow: 
-        0 32px 64px rgba(28, 28, 29, 0.5),
-        0 16px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.about-cta-buttons .cta-button:hover::before {
-    left: 100%;
-}
-
-.about-cta-buttons .cta-button .button-icon {
+.about-cta-buttons .cta-button .button-icon,
+.about-cta-buttons .cta-button-primary .button-icon, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary .button-icon { /* Added for direct targeting */
     width: 24px;
     height: 24px;
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), fill 0.3s ease, stroke 0.3s ease;
 }
 
-.about-cta-buttons .cta-button:hover .button-icon {
-    transform: translateX(6px) rotate(10deg) scale(1.1);
+.about-cta-buttons .cta-button:hover .button-icon,
+.about-cta-buttons .cta-button-primary:hover .button-icon, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary:hover .button-icon { /* Added for direct targeting */
+    transform: translateX(6px) rotate(10deg) scale(1.1); /* Icon animation on hover */
 }
 
-/* SVG Icon Colors for About CTA Buttons */
+/* SVG Icon Colors for About CTA Buttons (Base) */
 .about-cta-buttons .cta-button .button-icon,
 .about-cta-buttons .cta-button .button-icon svg,
 .about-cta-buttons .cta-button .button-icon use,
 .about-cta-buttons .cta-button svg,
-.about-cta-buttons .cta-button svg path {
+.about-cta-buttons .cta-button svg path,
+.about-cta-buttons .cta-button-primary .button-icon, /* Added for direct targeting */
+.about-cta-buttons .cta-button-primary .button-icon svg,
+.about-cta-buttons .cta-button-primary .button-icon use,
+.about-cta-buttons .cta-button-primary svg,
+.about-cta-buttons .cta-button-primary svg path,
+.about-cta-buttons .cta-button-secondary .button-icon, /* Added for direct targeting */
+.about-cta-buttons .cta-button-secondary .button-icon svg,
+.about-cta-buttons .cta-button-secondary .button-icon use,
+.about-cta-buttons .cta-button-secondary svg,
+.about-cta-buttons .cta-button-secondary svg path {
     transition: fill 0.3s ease, stroke 0.3s ease;
 }
 
-.about-cta-buttons .cta-button.primary .button-icon,
-.about-cta-buttons .cta-button.primary svg,
-.about-cta-buttons .cta-button.primary svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
-}
 
-.about-cta-buttons .cta-button.secondary .button-icon,
-.about-cta-buttons .cta-button.secondary svg,
-.about-cta-buttons .cta-button.secondary svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
-}
+/* ==================== DARK MODE STYLES (Default) ==================== */
 
-.about-cta-buttons .cta-button.secondary:hover .button-icon,
-.about-cta-buttons .cta-button.secondary:hover svg,
-.about-cta-buttons .cta-button.secondary:hover svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
-}
-
-/* Dark Mode Styles for About CTA Section */
-body:not(.light-mode) #about-cta-section {
-    background: linear-gradient(135deg, var(--color-accent-primary), #D69E2E);
-}
-
-body:not(.light-mode) #about-cta-section::before {
-    background: linear-gradient(135deg, 
-        rgba(255, 195, 106, 0.9), 
-        rgba(214, 158, 46, 0.9));
-}
-
-body:not(.light-mode) .about-cta-content {
-    color: #1C1C1D;
-}
-
-body:not(.light-mode) .about-cta-title {
-    color: #1C1C1D;
-}
-
+/* Dark Mode CTA Section Content Colors */
+body:not(.light-mode) .about-cta-content,
+body:not(.light-mode) .about-cta-title,
 body:not(.light-mode) .about-cta-description {
-    color: #2D3748;
+    color: var(--color-cta-text-dark); /* Black text for content in dark mode */
 }
 
-/* Light Mode Styles for About CTA Section */
-body.light-mode #about-cta-section {
-    background: linear-gradient(135deg, var(--color-accent-primary), #ffab40);
+/* Primary CTA Button - Dark Mode */
+body:not(.light-mode) .about-cta-buttons .cta-button-primary { /* Changed from .cta-button.primary */
+    background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-hover));
+    color: var(--color-cta-text-dark); /* Black text for primary button */
+    border: 2px solid var(--color-accent-primary);
+    box-shadow:
+        0 20px 40px rgba(255, 195, 106, 0.4), /* Shadow matches accent color */
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-body.light-mode #about-cta-section::before {
-    background: linear-gradient(135deg, 
-        rgba(255, 195, 106, 0.95), 
-        rgba(255, 171, 64, 0.95));
+/* Secondary CTA Button - Dark Mode */
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary { /* Changed from .cta-button.secondary */
+    background: transparent; /* Outline button */
+    color: var(--color-cta-text-dark); /* Black text for secondary button */
+    border: 2px solid var(--color-cta-text-dark); /* Black border */
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.1), /* Subtle dark shadow */
+        inset 0 0 0 transparent; /* No inner shadow for outline */
 }
 
-body.light-mode .about-cta-content {
-    color: #1C1C1D;
+/* Primary CTA Button Hover - Dark Mode */
+body:not(.light-mode) .about-cta-buttons .cta-button-primary:hover { /* Changed from .cta-button.primary */
+    background: linear-gradient(135deg, var(--color-accent-hover), #C25B1A); /* Deeper accent on hover */
+    color: var(--color-cta-text-dark);
+    box-shadow:
+        0 32px 64px rgba(255, 195, 106, 0.5), /* Enhanced shadow */
+        0 16px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: var(--color-accent-hover);
 }
 
-body.light-mode .about-cta-title {
-    color: #1C1C1D;
-}
-
-body.light-mode .about-cta-description {
-    color: #2D3748;
+/* Secondary CTA Button Hover - Dark Mode */
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary:hover { /* Changed from .cta-button.secondary */
+    background: rgba(var(--color-bg-secondary-dark-rgb), 0.2); /* Subtle dark fill on hover */
+    color: var(--color-accent-primary); /* Accent text on hover */
+    border-color: var(--color-accent-primary); /* Accent border on hover */
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.2), /* Slightly more pronounced shadow */
+        inset 0 0 0 transparent;
 }
 
 /* Dark Mode Button Icon Colors */
-body:not(.light-mode) .about-cta-buttons .cta-button.primary .button-icon,
-body:not(.light-mode) .about-cta-buttons .cta-button.primary .button-icon svg,
-body:not(.light-mode) .about-cta-buttons .cta-button.primary .button-icon use,
-body:not(.light-mode) .about-cta-buttons .cta-button.primary svg,
-body:not(.light-mode) .about-cta-buttons .cta-button.primary svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
+body:not(.light-mode) .about-cta-buttons .cta-button-primary .button-icon, /* Changed from .cta-button.primary */
+body:not(.light-mode) .about-cta-buttons .cta-button-primary svg,
+body:not(.light-mode) .about-cta-buttons .cta-button-primary svg path {
+    fill: var(--color-cta-text-dark) !important; /* Black icon for primary button */
+    stroke: var(--color-cta-text-dark) !important;
 }
 
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary .button-icon,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary .button-icon svg,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary .button-icon use,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary svg,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary .button-icon, /* Changed from .cta-button.secondary */
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary svg,
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary svg path {
+    fill: var(--color-cta-text-dark) !important; /* Black icon for secondary button */
+    stroke: var(--color-cta-text-dark) !important;
 }
 
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover .button-icon,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover .button-icon svg,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover .button-icon use,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover svg,
-body:not(.light-mode) .about-cta-buttons .cta-button.secondary:hover svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary:hover .button-icon, /* Changed from .cta-button.secondary */
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary:hover svg,
+body:not(.light-mode) .about-cta-buttons .cta-button-secondary:hover svg path {
+    fill: var(--color-accent-primary) !important; /* Icon changes to accent on hover */
+    stroke: var(--color-accent-primary) !important;
+}
+
+
+/* ==================== LIGHT MODE STYLES ==================== */
+
+/* Light Mode CTA Section Content Colors */
+body.light-mode .about-cta-content,
+body.light-mode .about-cta-title,
+body.light-mode .about-cta-description {
+    color: var(--color-cta-text-light); /* White text for content in light mode */
+}
+
+/* Primary CTA Button - Light Mode */
+body.light-mode .about-cta-buttons .cta-button-primary { /* Changed from .cta-button.primary */
+    background: linear-gradient(135deg, var(--color-accent-primary-light), var(--color-accent-hover-light));
+    color: var(--color-cta-text-light); /* White text for primary button */
+    border: 2px solid var(--color-accent-primary-light);
+    box-shadow:
+        0 20px 40px rgba(255, 195, 106, 0.3), /* Adjusted opacity for light mode shadow */
+        inset 0 1px 0 rgba(255, 255, 255, 0.3); /* Adjusted opacity for light mode inner shadow */
+}
+
+/* Secondary CTA Button - Light Mode */
+body.light-mode .about-cta-buttons .cta-button-secondary { /* Changed from .cta-button.secondary */
+    background: transparent; /* Outline button */
+    color: var(--color-cta-text-light); /* White text for secondary button */
+    border: 2px solid var(--color-cta-text-light); /* White border */
+    box-shadow:
+        0 10px 20px rgba(0, 0, 0, 0.05), /* Subtle dark shadow for light mode */
+        inset 0 0 0 transparent;
+}
+
+/* Primary CTA Button Hover - Light Mode */
+body.light-mode .about-cta-buttons .cta-button-primary:hover { /* Changed from .cta-button.primary */
+    background: linear-gradient(135deg, var(--color-accent-hover-light), #C25B1A); /* Deeper accent on hover */
+    color: var(--color-cta-text-light);
+    box-shadow:
+        0 32px 64px rgba(255, 195, 106, 0.4), /* Enhanced shadow for light mode */
+        0 16px 32px rgba(0, 0, 0, 0.2), /* Enhanced shadow for light mode */
+        inset 0 1px 0 rgba(255, 255, 255, 0.4); /* Enhanced inner shadow for light mode */
+    border-color: var(--color-accent-hover-light);
+}
+
+/* Secondary CTA Button Hover - Light Mode */
+body.light-mode .about-cta-buttons .cta-button-secondary:hover { /* Changed from .cta-button.secondary */
+    background: rgba(var(--color-bg-secondary-light-rgb), 0.1); /* Subtle white fill on hover */
+    color: var(--color-accent-primary-light); /* Accent text on hover */
+    border-color: var(--color-accent-primary-light); /* Accent border on hover */
+    box-shadow:
+        0 16px 32px rgba(0, 0, 0, 0.08), /* Slightly more pronounced shadow for light mode */
+        inset 0 0 0 transparent;
 }
 
 /* Light Mode Button Icon Colors */
-body.light-mode .about-cta-buttons .cta-button.primary .button-icon,
-body.light-mode .about-cta-buttons .cta-button.primary .button-icon svg,
-body.light-mode .about-cta-buttons .cta-button.primary .button-icon use,
-body.light-mode .about-cta-buttons .cta-button.primary svg,
+body.light-mode .about-cta-buttons .cta-button-primary .button-icon, /* Changed from .cta-button.primary */
+body.light-mode .about-cta-buttons .cta-button-primary svg,
 body.light-mode .about-cta-buttons .cta-button.primary svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
+    fill: var(--color-cta-text-light) !important; /* White icon for primary button */
+    stroke: var(--color-cta-text-light) !important;
 }
 
-body.light-mode .about-cta-buttons .cta-button.secondary .button-icon,
-body.light-mode .about-cta-buttons .cta-button.secondary .button-icon svg,
-body.light-mode .about-cta-buttons .cta-button.secondary .button-icon use,
+body.light-mode .about-cta-buttons .cta-button-secondary .button-icon, /* Changed from .cta-button.secondary */
 body.light-mode .about-cta-buttons .cta-button.secondary svg,
 body.light-mode .about-cta-buttons .cta-button.secondary svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
+    fill: var(--color-cta-text-light) !important; /* White icon for secondary button */
+    stroke: var(--color-cta-text-light) !important;
 }
 
-body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon,
-body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon svg,
-body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon use,
+body.light-mode .about-cta-buttons .cta-button.secondary:hover .button-icon, /* Changed from .cta-button.secondary */
 body.light-mode .about-cta-buttons .cta-button.secondary:hover svg,
 body.light-mode .about-cta-buttons .cta-button.secondary:hover svg path {
-    fill: #FFFFFF !important;
-    stroke: #FFFFFF !important;
+    fill: var(--color-accent-primary-light) !important;
+    stroke: var(--color-accent-primary-light) !important;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .about-cta-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .about-cta-description {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .about-cta-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 16px;
+    }
+
+    .about-cta-buttons .cta-button, /* Apply to both new class names */
+    .about-cta-buttons .cta-button-primary,
+    .about-cta-buttons .cta-button-secondary {
+        width: 100%; /* Full width for stacked buttons */
+        max-width: 300px; /* Limit max width for readability */
+        padding: 16px 30px;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+
+    .about-cta-buttons .cta-button .button-icon, /* Apply to both new class names */
+    .about-cta-buttons .cta-button-primary .button-icon,
+    .about-cta-buttons .cta-button-secondary .button-icon {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 /* Enhanced Responsive Design */
@@ -10516,4 +10353,172 @@ body.light-mode .about-cta-buttons .cta-button.secondary:hover svg path {
 
 /* ==================== END ABOUT PAGE STYLING ==================== */
 
-/* ==================== END LIGHT MODE IMPROVEMENTS ==================== */
+/* ==================== PORTFOLIO PAGE STYLING ==================== */
+
+#portfolio-section {
+  padding: 120px 0 100px;
+  position: relative;
+  background: var(--color-bg-primary);
+  overflow: hidden;
+  text-align: center;
+}
+
+#portfolio-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 195, 106, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 195, 106, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-title {
+  background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.portfolio-description {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary-light);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.under-construction {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: var(--color-text-primary-light);
+}
+
+.under-construction svg {
+  width: 80px;
+  height: 80px;
+  stroke: var(--color-accent-primary-light);
+  fill: none;
+  stroke-width: 2;
+  animation: bounce 2s infinite;
+}
+
+.under-construction span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-primary-light);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+
+/* ==================== CREATIONS PAGE STYLING ==================== */
+#creations-section {
+  padding: 120px 0 100px;
+  position: relative;
+  background: var(--color-bg-primary);
+  overflow: hidden;
+  text-align: center;
+}
+
+#creations-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 195, 106, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 195, 106, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.creations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.creations-title {
+  background: linear-gradient(135deg, var(--color-accent-primary-light) 0%, var(--color-accent-hover-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.creations-description {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary-light);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.under-construction {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: var(--color-text-primary-light);
+}
+
+.under-construction svg {
+  width: 80px;
+  height: 80px;
+  stroke: var(--color-accent-primary-light);
+  fill: none;
+  stroke-width: 2;
+  animation: bounce 2s infinite;
+}
+
+.under-construction span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-primary-light);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+
+/* ==================== END CREATIONS PAGE STYLING ==================== */
+
+/* ==================== BLOG PAGE STYLING ==================== */
+
+
+/* ==================== END BLOG PAGE STYLING ==================== */

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoshuaArabejo</title>
+    <!-- Google Fonts for Inter (General Text/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts for Fira Code (Code Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts for Jacquard 12 (Logo Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts for Poppins (Navigation Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="creations/assets/css/style.css">
+</head>
+<body>
+    <header class="main-header" id="mainHeader">
+        <div class="header-inner-content">
+            <!-- header-left-section -->
+            <div class="header-left-section" id="header-left-section">
+                <a href="index.html" class="logo-link">
+                    <!-- Text logo using Jacquard 12 font -->
+                    <span class="logo-text">J</span>
+                </a>
+            </div>
+
+            <!-- header-nav-main (Desktop Navigation) -->
+            <nav class="header-nav-main" id="header-nav-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="creations.html">Creations <span class="dropdown-arrow"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Tools</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- header-utilities-cta -->
+            <div class="header-utilities-cta" id="header-utilities-cta">
+                <button class="cta-button" id="hireMeBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32"><path fill="none" stroke="#1C1C1D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M30 8H2v18h28ZM20 8s0-4-4-4s-4 4-4 4M8 26V8m16 18V8"/></svg>
+                    Hire Me
+                </button>
+
+                <div class="search-container">
+                    <button id="searchIcon" class="icon-button search-icon-btn">
+                        <svg class="icon"><use xlink:href="creations/assets/svg/icons.svg#icon-search"></use></svg>
+                    </button>
+                    <div class="search-input-wrapper">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+                        <button id="closeSearchBtn" class="icon-button close-search-btn">X</button>
+                    </div>
+                </div>
+
+                <div class="theme-toggle-container">
+                    <button id="lightModeToggle" class="icon-button theme-toggle hidden">
+                        <svg class="icon sun-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-sun"></use></svg>
+                    </button>
+                    <button id="darkModeToggle" class="icon-button theme-toggle">
+                        <svg class="icon moon-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-moon"></use></svg>
+                    </button>
+                </div>
+                
+
+                <!-- Hamburger Menu Button -->
+                <button id="hamburgerMenuBtn" class="icon-button hamburger-menu-btn hidden">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (initially hidden) -->
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <span class="mobile-logo-text">J</span>
+            <button id="closeMobileNavBtn" class="icon-button close-mobile-nav-btn">X</button>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li class="dropdown-mobile">
+                <a href="#" class="dropdown-toggle-mobile" id="creationsDropdownToggleMobile">Creations <span class="dropdown-arrow-mobile"></span></a>
+                <ul class="dropdown-menu-mobile">
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Tools</a></li>
+
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <button class="cta-button mobile-cta-button" id="mobileHireMeBtn">
+                    <svg class="button-icon">
+                        <use xlink:href="creations/assets/svg/icons.svg#icon-briefcase"></use>
+                    </svg>
+                    Hire Me
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Contact Section --> 
+    <section id="contact-section">
+        <div class="contact-container">
+            <div class="contact-header">
+                <div class="contact-header-icon">
+                    <svg class="icon"><use xlink:href="creations/assets/svg/icons.svg#icon-mail"></use></svg>
+                </div>
+                <h2 class="section-title">CONTACT ME</h2>
+                <p class="section-subtitle">Let's work together on your next project</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Map (Top) -->
+                <div class="contact-map">
+                    <div id="map"></div>
+                    <div class="map-overlay">
+                        <div class="location-info">
+                            <h3>📍 Location</h3>
+                            <p>Davao City, Philippines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Bottom) -->
+                <div class="contact-form-wrapper">
+                    <h3 class="form-title">Let's Start a Conversation</h3>
+                    <p class="form-subtitle">Tell me about your project and how I can help you</p>
+                    
+                    <form class="contact-form" action="#" method="post">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group select-group">
+                                <label for="subject">Project Category *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a service category</option>
+                                    <option value="web-development">🌐 Web Development (HTML, CSS, JS)</option>
+                                    <option value="ui-design">🎨 UI/UX Design (Figma)</option>
+                                    <option value="desktop-app">💻 Desktop Application (C#, .NET)</option>
+                                    <option value="mobile-app">📱 Mobile App Development</option>
+                                    <option value="game-development">🎮 Game Development</option>
+                                    <option value="database">🗄️ Database Development (MySQL)</option>
+                                    <option value="automation">⚙️ Automation & Tools</option>
+                                    <option value="consultation">💡 Tech Consultation</option>
+                                    <option value="other">🔧 Other / Custom Project</option>
+                                </select>
+                            </div>
+                            <div class="form-group select-group">
+                                <label for="budget">Project Budget (Optional)</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-500">Under ₱500</option>
+                                    <option value="500-1000">₱500 - ₱1,000</option>
+                                    <option value="1000-2500">₱1,000 - ₱2,500</option>
+                                    <option value="2500-5000">₱2,500 - ₱5,000</option>
+                                    <option value="5000-plus">₱5,000+</option>
+                                    <option value="discuss">Let's discuss</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group select-group">
+                            <label for="timeline">Project Timeline (Optional)</label>
+                            <select id="timeline" name="timeline">
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP (Rush job)</option>
+                                <option value="1-week">Within 1 week</option>
+                                <option value="2-4-weeks">2-4 weeks</option>
+                                <option value="1-2-months">1-2 months</option>
+                                <option value="3-months-plus">3+ months</option>
+                                <option value="flexible">Flexible timeline</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Tell me about your project:&#10;&#10;• What are you looking to build?&#10;• What's your vision or goal?&#10;• Any specific features you need?&#10;• Reference websites or designs?&#10;• Any technical requirements?"></textarea>
+                        </div>
+
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="checkbox">
+                            <label for="newsletter" class="checkbox-label">I'd like to receive updates about your latest projects and tech insights</label>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            <svg class="button-icon">
+                                <use xlink:href="creations/assets/svg/icons.svg#icon-send"></use>
+                            </svg>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <!-- Footer Top Section -->
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="footer-logo-text">J</span>
+                    </div>
+                    <h3 class="footer-brand-name">Joshua Arabejo</h3>
+                    <p class="footer-tagline">Developer & Designer</p>
+                    <p class="footer-description">
+                        Creating digital solutions with modern technologies. 
+                        Specializing in web development, UI/UX design, and desktop applications.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Navigation</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Services</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="#">Game Development</a></li>
+                            <li><a href="#">Tools & Automation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Technologies</h4>
+                        <ul class="footer-tech-list">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>React, Next.js</li>
+                            <li>C#, .NET</li>
+                            <li>Python, MySQL</li>
+                            <li>Figma, UI/UX</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Get In Touch</h4>
+                        <div class="footer-contact">
+                            <div class="footer-contact-item">
+                                <svg class="footer-icon">
+                                    <use xlink:href="creations/assets/svg/icons.svg#icon-mail"></use>
+                                </svg>
+                                <a href="mailto:itzjoshuawayman@gmail.com">itzjoshuawayman@gmail.com</a>
+                            </div>
+                            <div class="footer-contact-item">
+                                <svg class="footer-icon">
+                                    <use xlink:href="creations/assets/svg/icons.svg#icon-map-pin"></use>
+                                </svg>
+                                <span>Davao City, Philippines</span>
+                            </div>
+                        </div>
+
+                        <div class="footer-social">
+                            <h5 class="footer-social-title">Follow Me</h5>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/joshua.a.arabejo" class="footer-social-link" title="Facebook">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-facebook"></use>
+                                    </svg>
+                                </a>
+                                <a href="#" class="footer-social-link" title="Telegram">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-telegram"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.youtube.com/@joshuaarabejodrums5441" class="footer-social-link" title="YouTube">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-youtube"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/joshua-arabejo-55a857324/" class="footer-social-link" title="LinkedIn">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-linkedin"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/ItzFrostyCode" class="footer-social-link" title="GitHub">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-github"></use>
+                                    </svg>
+                                </a>
+                                <a href="mailto:itzjoshuawayman@gmail.com" class="footer-social-link" title="Gmail">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-gmail"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Joshua Arabejo. All rights reserved.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                        <a href="#" class="footer-bottom-link">Terms of Service</a>
+                        <a href="#" class="footer-bottom-link">Sitemap</a>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Made with ❤️ using modern web technologies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- EmailJS for sending emails -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script src="creations/assets/js/particles-background.js"></script>
+    <script src="creations/assets/js/email-config.js"></script>
+    <script src="creations/assets/js/script.js"></script>
+    <script src="creations/assets/js/project-cards.js"></script>
+
+</body>
+</html>

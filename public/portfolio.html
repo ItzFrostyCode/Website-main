@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JoshuaArabejo</title>
+    <!-- Google Fonts for Inter (General Text/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts for Fira Code (Code Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts for Jacquard 12 (Logo Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts for Poppins (Navigation Font) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="creations/assets/css/style.css">
+</head>
+<body>
+    <header class="main-header" id="mainHeader">
+        <div class="header-inner-content">
+            <!-- header-left-section -->
+            <div class="header-left-section" id="header-left-section">
+                <a href="index.html" class="logo-link">
+                    <!-- Text logo using Jacquard 12 font -->
+                    <span class="logo-text">J</span>
+                </a>
+            </div>
+
+            <!-- header-nav-main (Desktop Navigation) -->
+            <nav class="header-nav-main" id="header-nav-main">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="dropdown">
+                        <a href="creations.html">Creations <span class="dropdown-arrow"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Tools</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- header-utilities-cta -->
+            <div class="header-utilities-cta" id="header-utilities-cta">
+                <button class="cta-button" id="hireMeBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32"><path fill="none" stroke="#1C1C1D" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M30 8H2v18h28ZM20 8s0-4-4-4s-4 4-4 4M8 26V8m16 18V8"/></svg>
+                    Hire Me
+                </button>
+
+                <div class="search-container">
+                    <button id="searchIcon" class="icon-button search-icon-btn">
+                        <svg class="icon"><use xlink:href="creations/assets/svg/icons.svg#icon-search"></use></svg>
+                    </button>
+                    <div class="search-input-wrapper">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search...">
+                        <button id="closeSearchBtn" class="icon-button close-search-btn">X</button>
+                    </div>
+                </div>
+
+                <div class="theme-toggle-container">
+                    <button id="lightModeToggle" class="icon-button theme-toggle hidden">
+                        <svg class="icon sun-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-sun"></use></svg>
+                    </button>
+                    <button id="darkModeToggle" class="icon-button theme-toggle">
+                        <svg class="icon moon-icon"><use xlink:href="creations/assets/svg/icons.svg#icon-moon"></use></svg>
+                    </button>
+                </div>
+                
+
+                <!-- Hamburger Menu Button -->
+                <button id="hamburgerMenuBtn" class="icon-button hamburger-menu-btn hidden">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu (initially hidden) -->
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <span class="mobile-logo-text">J</span>
+            <button id="closeMobileNavBtn" class="icon-button close-mobile-nav-btn">X</button>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li class="dropdown-mobile">
+                <a href="#" class="dropdown-toggle-mobile" id="creationsDropdownToggleMobile">Creations <span class="dropdown-arrow-mobile"></span></a>
+                <ul class="dropdown-menu-mobile">
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Tools</a></li>
+                </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <button class="cta-button mobile-cta-button" id="mobileHireMeBtn">
+                    <svg class="button-icon">
+                        <use xlink:href="creations/assets/svg/icons.svg#icon-briefcase"></use>
+                    </svg>
+                    Hire Me
+                </button>
+            </li>
+        </ul>
+    </nav>
+    <!-- Portfolio Section -->
+    <section id="portfolio-section">
+        <div class="portfolio-container">
+            <h1 class="portfolio-title">My Portfolio</h1>
+            <p class="portfolio-description">
+            This page is currently under construction. Please check back soon
+            </p>
+
+        <div class="under-construction">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41M8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0z"/>
+            </svg>
+            
+        </div>
+  </div>
+</section>
+
+
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <!-- Footer Top Section -->
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="footer-logo-text">J</span>
+                    </div>
+                    <h3 class="footer-brand-name">Joshua Arabejo</h3>
+                    <p class="footer-tagline">Developer & Designer</p>
+                    <p class="footer-description">
+                        Creating digital solutions with modern technologies. 
+                        Specializing in web development, UI/UX design, and desktop applications.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Navigation</h4>
+                        <ul class="footer-nav-list">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Services</h4>
+                        <ul class="footer-nav-list">
+                            
+                            <li><a href="#">Game Development</a></li>
+                            <li><a href="#">Tools & Automation</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Technologies</h4>
+                        <ul class="footer-tech-list">
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>React, Next.js</li>
+                            <li>C#, .NET</li>
+                            <li>Python, MySQL</li>
+                            <li>Figma, UI/UX</li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Get In Touch</h4>
+                        <div class="footer-contact">
+                            <div class="footer-contact-item">
+                                <svg class="footer-icon">
+                                    <use xlink:href="creations/assets/svg/icons.svg#icon-mail"></use>
+                                </svg>
+                                <a href="mailto:itzjoshuawayman@gmail.com">itzjoshuawayman@gmail.com</a>
+                            </div>
+                            <div class="footer-contact-item">
+                                <svg class="footer-icon">
+                                    <use xlink:href="creations/assets/svg/icons.svg#icon-map-pin"></use>
+                                </svg>
+                                <span>Davao City, Philippines</span>
+                            </div>
+                        </div>
+
+                        <div class="footer-social">
+                            <h5 class="footer-social-title">Follow Me</h5>
+                            <div class="footer-social-links">
+                                <a href="https://www.facebook.com/joshua.a.arabejo" class="footer-social-link" title="Facebook">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-facebook"></use>
+                                    </svg>
+                                </a>
+                                <a href="#" class="footer-social-link" title="Telegram">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-telegram"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.youtube.com/@joshuaarabejodrums5441" class="footer-social-link" title="YouTube">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-youtube"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://www.linkedin.com/in/joshua-arabejo-55a857324/" class="footer-social-link" title="LinkedIn">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-linkedin"></use>
+                                    </svg>
+                                </a>
+                                <a href="https://github.com/ItzFrostyCode" class="footer-social-link" title="GitHub">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-github"></use>
+                                    </svg>
+                                </a>
+                                <a href="mailto:itzjoshuawayman@gmail.com" class="footer-social-link" title="Gmail">
+                                    <svg class="footer-social-icon">
+                                        <use xlink:href="creations/assets/svg/icons.svg#icon-gmail"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="footer-copyright">
+                        <p>&copy; 2025 Joshua Arabejo. All rights reserved.</p>
+                    </div>
+                    <div class="footer-bottom-links">
+                        <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                        <a href="#" class="footer-bottom-link">Terms of Service</a>
+                        <a href="#" class="footer-bottom-link">Sitemap</a>
+                    </div>
+                    <div class="footer-credits">
+                        <p>Made with ❤️ using modern web technologies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- EmailJS for sending emails -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script src="creations/assets/js/particles-background.js"></script>
+    <script src="creations/assets/js/email-config.js"></script>
+    <script src="creations/assets/js/script.js"></script>
+    <script src="creations/assets/js/project-cards.js"></script>
+
+</body>
+</html>
