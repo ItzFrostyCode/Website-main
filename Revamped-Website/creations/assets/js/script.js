@@ -72,6 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     const hamburgerMenuBtn = document.getElementById('hamburgerMenuBtn');
 
+    // Debug: Check if elements are found
+    console.log('Theme toggle elements:', {
+        lightModeToggle,
+        darkModeToggle,
+        body
+    });
+
+    // Debug: Test loading screen function directly
+    window.testLoadingScreen = function() {
+        console.log('Testing loading screen...');
+        applyThemeWithTransition('light-mode');
+    };
+
     // Debounce and animation variables
     let themeToggleDebounceTimer = null;
     let isThemeToggling = false;
@@ -121,17 +134,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyThemeWithTransition(theme) {
+        console.log('Theme switch initiated:', theme); // Debug log
         if (isThemeToggling) return;
         
         isThemeToggling = true;
         
-        // Add loading class to current toggle button
-        const currentToggle = body.classList.contains('light-mode') ? lightModeToggle : darkModeToggle;
-        currentToggle.classList.add('loading');
+        // Create and show loading overlay with appropriate styling based on current theme
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.className = 'theme-loading-overlay';
         
-        // Add transition class to body for smooth theme change
-        body.classList.add('theme-transitioning');
+        // Apply current theme class to overlay for proper styling
+        if (body.classList.contains('light-mode')) {
+            loadingOverlay.classList.add('current-light');
+        }
         
+        loadingOverlay.innerHTML = `
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Switching to ${theme === 'light-mode' ? 'Light Mode' : 'Dark Mode'}...</div>
+        `;
+        
+        document.body.appendChild(loadingOverlay);
+        console.log('Loading overlay added to DOM'); // Debug log
+        
+        // Show loading overlay
+        setTimeout(() => {
+            loadingOverlay.classList.add('show');
+            console.log('Loading overlay show class added'); // Debug log
+        }, 10);
+        
+        // Apply theme change after loading screen is visible
         setTimeout(() => {
             if (theme === 'light-mode') {
                 body.classList.add('light-mode');
@@ -140,17 +171,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             localStorage.setItem('theme', theme);
-            
-            // Remove loading class and update buttons
-            currentToggle.classList.remove('loading');
             updateToggleButtons(theme === 'light-mode', true);
             
-            // Remove transition class after animation
+            // Hide loading overlay and clean up
             setTimeout(() => {
-                body.classList.remove('theme-transitioning');
-                isThemeToggling = false;
-            }, 300);
-        }, 200); // Slightly longer delay to show loading state
+                loadingOverlay.classList.add('hide');
+                loadingOverlay.classList.remove('show');
+                
+                setTimeout(() => {
+                    if (loadingOverlay.parentNode) {
+                        document.body.removeChild(loadingOverlay);
+                    }
+                    isThemeToggling = false;
+                    console.log('Loading overlay removed and theme switch complete'); // Debug log
+                }, 300);
+            }, 800); // Show loading for 800ms to prevent spam clicking
+        }, 300);
     }
 
     // Initialize theme on page load
@@ -164,36 +200,64 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     localStorage.setItem('theme', preferredTheme);
 
-    // Debounced theme toggle function
+    // Debounced theme toggle function with enhanced protection
     function debouncedThemeToggle(newTheme) {
+        // Prevent multiple toggles while one is in progress
+        if (isThemeToggling) return;
+        
+        // Clear any existing debounce timer
         if (themeToggleDebounceTimer) {
             clearTimeout(themeToggleDebounceTimer);
         }
         
         themeToggleDebounceTimer = setTimeout(() => {
             applyThemeWithTransition(newTheme);
-        }, 100); // 100ms debounce
+        }, 150); // 150ms debounce for better UX
     }
 
-    // Event listeners with debouncing
+    // Event listeners with enhanced debouncing and feedback
     darkModeToggle.addEventListener('click', (e) => {
+        console.log('Dark mode toggle clicked'); // Debug log
         e.preventDefault();
-        if (isThemeToggling) return;
+        if (isThemeToggling) {
+            console.log('Theme toggle ignored - already switching'); // Debug log
+            // Optional: Add visual feedback that click was ignored
+            darkModeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                darkModeToggle.style.transform = '';
+            }, 100);
+            return;
+        }
+        console.log('Initiating switch to light mode'); // Debug log
         debouncedThemeToggle('light-mode');
     });
 
     lightModeToggle.addEventListener('click', (e) => {
+        console.log('Light mode toggle clicked'); // Debug log
         e.preventDefault();
-        if (isThemeToggling) return;
+        if (isThemeToggling) {
+            console.log('Theme toggle ignored - already switching'); // Debug log
+            // Optional: Add visual feedback that click was ignored
+            lightModeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                lightModeToggle.style.transform = '';
+            }, 100);
+            return;
+        }
+        console.log('Initiating switch to dark mode'); // Debug log
         debouncedThemeToggle('dark-mode');
     });
 
-    // Keyboard support for theme toggle
+    // Enhanced keyboard support for theme toggle
     [darkModeToggle, lightModeToggle].forEach(toggle => {
         toggle.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                if (isThemeToggling) return;
+                if (isThemeToggling) {
+                    // Provide accessibility feedback
+                    toggle.setAttribute('aria-busy', 'true');
+                    return;
+                }
                 
                 const newTheme = toggle === darkModeToggle ? 'light-mode' : 'dark-mode';
                 debouncedThemeToggle(newTheme);
