@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Test - Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .status {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        .config-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .config-section h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>📧 Email Configuration Test</h1>
+        
+        <div id="status" class="status info">
+            Click the button below to test your EmailJS configuration.
+        </div>
+
+        <button id="testBtn" onclick="testEmailConfiguration()">
+            Test Email Configuration
+        </button>
+
+        <button onclick="sendTestEmail()">
+            Send Test Email to itzjoshuawayman@gmail.com
+        </button>
+
+        <div class="config-section">
+            <h3>📋 Setup Checklist</h3>
+            <div id="checklist">
+                <p>✅ EmailJS library loaded</p>
+                <p id="configCheck">⏳ Checking configuration...</p>
+                <p id="serviceCheck">⏳ Checking service connection...</p>
+            </div>
+        </div>
+
+        <div class="config-section">
+            <h3>🔧 Current Configuration</h3>
+            <pre id="configDisplay">Loading configuration...</pre>
+        </div>
+    </div>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="creations/assets/js/email-config.js"></script>
+
+    <script>
+        let statusDiv = document.getElementById('status');
+        let testBtn = document.getElementById('testBtn');
+
+        function updateStatus(message, type) {
+            statusDiv.className = `status ${type}`;
+            statusDiv.innerHTML = message;
+        }
+
+        function testEmailConfiguration() {
+            testBtn.disabled = true;
+            testBtn.innerHTML = 'Testing...';
+            
+            // Check if EmailJS is loaded
+            if (typeof emailjs === 'undefined') {
+                updateStatus('❌ EmailJS library is not loaded!', 'error');
+                testBtn.disabled = false;
+                testBtn.innerHTML = 'Test Email Configuration';
+                return;
+            }
+
+            // Check if configuration exists
+            if (typeof EMAIL_CONFIG === 'undefined') {
+                updateStatus('❌ Email configuration is not loaded!', 'error');
+                testBtn.disabled = false;
+                testBtn.innerHTML = 'Test Email Configuration';
+                return;
+            }
+
+            // Display configuration
+            document.getElementById('configDisplay').textContent = JSON.stringify(EMAIL_CONFIG, null, 2);
+
+            // Check if configuration is set up
+            if (EMAIL_CONFIG.SERVICE_ID === 'your_service_id' || 
+                EMAIL_CONFIG.TEMPLATE_ID === 'your_template_id' || 
+                EMAIL_CONFIG.PUBLIC_KEY === 'your_public_key') {
+                
+                updateStatus('⚠️ EmailJS configuration needs to be updated! Please check EMAIL_SETUP_INSTRUCTIONS.md', 'error');
+                document.getElementById('configCheck').innerHTML = '❌ Configuration contains placeholder values';
+            } else {
+                updateStatus('✅ EmailJS configuration looks good!', 'success');
+                document.getElementById('configCheck').innerHTML = '✅ Configuration appears to be set';
+            }
+
+            testBtn.disabled = false;
+            testBtn.innerHTML = 'Test Email Configuration';
+        }
+
+        async function sendTestEmail() {
+            if (typeof sendContactEmail === 'undefined') {
+                updateStatus('❌ sendContactEmail function not found!', 'error');
+                return;
+            }
+
+            updateStatus('📤 Sending test email...', 'info');
+
+            const testData = {
+                name: 'Test User',
+                email: 'test@example.com',
+                subject: 'web-development',
+                message: 'This is a test email from your website contact form setup. If you receive this, your email configuration is working correctly!',
+                budget: 'Test budget',
+                timeline: 'Test timeline',
+                newsletter: false
+            };
+
+            try {
+                const result = await sendContactEmail(testData);
+                
+                if (result.success) {
+                    updateStatus('✅ Test email sent successfully! Check itzjoshuawayman@gmail.com', 'success');
+                } else {
+                    updateStatus(`❌ Failed to send test email: ${result.error?.text || 'Unknown error'}`, 'error');
+                }
+            } catch (error) {
+                updateStatus(`❌ Error sending test email: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-test on page load
+        window.addEventListener('load', function() {
+            setTimeout(testEmailConfiguration, 1000);
+        });
+    </script>
+</body>
+</html>
